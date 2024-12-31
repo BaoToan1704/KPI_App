@@ -155,5 +155,26 @@ namespace KPI
         {
             lblTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
         }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            //pnlNav.Height = btnSetting.Height;
+            //pnlNav.Top = btnSetting.Top;
+            //pnlNav.Left = btnSetting.Left;
+            //btnSetting.BackColor = Color.FromArgb(46, 51, 73);
+
+            //lblTitle.Text = "Lịch sử nộp KPI";
+            //this.pnlFormLoader.Controls.Clear();
+            //lichSufrm tieuChiCaNhanfrm = new lichSufrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //lichSufrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
+            //this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
+            //tieuChiCaNhanfrm.Show();
+            //this.pnlFormLoader.ResumeLayout(false);
+        }
+
+        private void btnHistory_Leave(object sender, EventArgs e)
+        {
+            btnHistory.BackColor = Color.FromArgb(24, 30, 54);
+        }
     }
 }
