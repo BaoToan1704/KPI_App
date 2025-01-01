@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             panel1 = new Panel();
-            btnHistory = new Button();
             pnlNav = new Panel();
             btnSetting = new Button();
             btnLeaderMarking = new Button();
@@ -54,7 +53,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(24, 30, 54);
-            panel1.Controls.Add(btnHistory);
             panel1.Controls.Add(pnlNav);
             panel1.Controls.Add(btnSetting);
             panel1.Controls.Add(btnLeaderMarking);
@@ -66,23 +64,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(186, 577);
             panel1.TabIndex = 0;
-            // 
-            // btnHistory
-            // 
-            btnHistory.Dock = DockStyle.Top;
-            btnHistory.FlatAppearance.BorderSize = 0;
-            btnHistory.FlatStyle = FlatStyle.Flat;
-            btnHistory.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHistory.ForeColor = Color.FromArgb(0, 126, 149);
-            btnHistory.ImageAlign = ContentAlignment.BottomLeft;
-            btnHistory.Location = new Point(0, 270);
-            btnHistory.Name = "btnHistory";
-            btnHistory.Size = new Size(186, 42);
-            btnHistory.TabIndex = 7;
-            btnHistory.Text = "Lịch sử";
-            btnHistory.UseVisualStyleBackColor = true;
-            btnHistory.Click += btnHistory_Click;
-            btnHistory.Leave += btnHistory_Leave;
             // 
             // pnlNav
             // 
@@ -293,6 +274,5 @@
         private Button btn_close;
         private System.Windows.Forms.Timer timer1;
         private Label lblTime;
-        private Button btnHistory;
     }
 }
