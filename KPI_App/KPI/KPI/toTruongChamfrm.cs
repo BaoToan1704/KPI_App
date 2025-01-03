@@ -16,5 +16,10 @@ namespace KPI
         {
             InitializeComponent();
         }
+
+        private void toTruongChamfrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

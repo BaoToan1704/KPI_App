@@ -4,6 +4,9 @@
     <Compile Update="caiDatfrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="lichSufrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>

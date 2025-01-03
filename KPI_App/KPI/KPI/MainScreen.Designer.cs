@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             panel1 = new Panel();
+            btnHistory = new Button();
             pnlNav = new Panel();
             btnSetting = new Button();
             btnLeaderMarking = new Button();
@@ -45,6 +46,8 @@
             btn_close = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             lblTime = new Label();
+            btnMaximize = new Button();
+            btnMinimize = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -53,17 +56,34 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.Controls.Add(btnHistory);
             panel1.Controls.Add(pnlNav);
             panel1.Controls.Add(btnSetting);
             panel1.Controls.Add(btnLeaderMarking);
             panel1.Controls.Add(btnFind);
             panel1.Controls.Add(btnSelfMarking);
             panel1.Controls.Add(panel2);
-            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(186, 577);
             panel1.TabIndex = 0;
+            // 
+            // btnHistory
+            // 
+            btnHistory.Dock = DockStyle.Top;
+            btnHistory.FlatAppearance.BorderSize = 0;
+            btnHistory.FlatStyle = FlatStyle.Flat;
+            btnHistory.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistory.ForeColor = Color.FromArgb(0, 126, 149);
+            btnHistory.ImageAlign = ContentAlignment.BottomLeft;
+            btnHistory.Location = new Point(0, 270);
+            btnHistory.Name = "btnHistory";
+            btnHistory.Size = new Size(186, 42);
+            btnHistory.TabIndex = 7;
+            btnHistory.Text = "Lịch sử";
+            btnHistory.UseVisualStyleBackColor = true;
+            btnHistory.Click += btnHistory_Click;
+            btnHistory.Leave += btnHistory_Leave;
             // 
             // pnlNav
             // 
@@ -198,7 +218,6 @@
             // 
             // pnlFormLoader
             // 
-            pnlFormLoader.Dock = DockStyle.Bottom;
             pnlFormLoader.Location = new Point(186, 52);
             pnlFormLoader.Name = "pnlFormLoader";
             pnlFormLoader.Size = new Size(765, 525);
@@ -233,12 +252,40 @@
             lblTime.TabIndex = 5;
             lblTime.Text = "Time";
             // 
+            // btnMaximize
+            // 
+            btnMaximize.FlatAppearance.BorderSize = 0;
+            btnMaximize.FlatStyle = FlatStyle.Flat;
+            btnMaximize.ForeColor = Color.White;
+            btnMaximize.Location = new Point(883, 12);
+            btnMaximize.Name = "btnMaximize";
+            btnMaximize.Size = new Size(25, 25);
+            btnMaximize.TabIndex = 6;
+            btnMaximize.Text = "▢";
+            btnMaximize.UseVisualStyleBackColor = true;
+            btnMaximize.Click += btnMaximize_Click;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.ForeColor = Color.White;
+            btnMinimize.Location = new Point(852, 12);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(25, 25);
+            btnMinimize.TabIndex = 7;
+            btnMinimize.Text = "─";
+            btnMinimize.UseVisualStyleBackColor = true;
+            btnMinimize.Click += btnMinimize_Click;
+            // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(951, 577);
+            Controls.Add(btnMinimize);
+            Controls.Add(btnMaximize);
             Controls.Add(lblTime);
             Controls.Add(btn_close);
             Controls.Add(pnlFormLoader);
@@ -274,5 +321,8 @@
         private Button btn_close;
         private System.Windows.Forms.Timer timer1;
         private Label lblTime;
+        private Button btnMaximize;
+        private Button btnHistory;
+        private Button btnMinimize;
     }
 }

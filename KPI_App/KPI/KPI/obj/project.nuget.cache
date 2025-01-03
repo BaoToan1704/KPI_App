@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4KmGQwji+b0=",
+  "dgSpecHash": "sYOR6waWhzI=",
   "success": true,
-  "projectFilePath": "D:\\0.VITINH\\Toan\\KPI_App\\KPI\\KPI\\KPI.csproj",
+  "projectFilePath": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\KPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vitinh\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\vitinh\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

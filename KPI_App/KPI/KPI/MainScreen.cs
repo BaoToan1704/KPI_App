@@ -20,7 +20,7 @@ namespace KPI
 
         );
         private string userMaNV;
-        //private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // Your DB connection string
+        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // Your DB connection string
         public MainScreen(string username)
         {
             InitializeComponent();
@@ -78,6 +78,22 @@ namespace KPI
             this.pnlFormLoader.ResumeLayout(false);
         }
 
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnHistory.Height;
+            pnlNav.Top = btnHistory.Top;
+            pnlNav.Left = btnHistory.Left;
+            btnHistory.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Lịch sử nộp KPI";
+            this.pnlFormLoader.Controls.Clear();
+            lichSufrm tieuChiCaNhanfrm = new lichSufrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            lichSufrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
+            this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
+            tieuChiCaNhanfrm.Show();
+            this.pnlFormLoader.ResumeLayout(false);
+        }
+
         private void btnSetting_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnSetting.Height;
@@ -108,6 +124,10 @@ namespace KPI
         private void btnLeaderMarking_Leave(object sender, EventArgs e)
         {
             btnLeaderMarking.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void btnHistory_Leave(object sender, EventArgs e)
+        {
+            btnHistory.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnSetting_Leave(object sender, EventArgs e)
@@ -148,12 +168,68 @@ namespace KPI
 
             lblTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
             timer1.Start();
+            CheckUserPermission();
 
+
+        }
+
+        private void CheckUserPermission()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Query to check the CD of the logged-in user
+                    string query = "SELECT CD FROM user WHERE MaNV = @MaNV";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNV", userMaNV);
+
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result.ToString() == "TT")
+                        {
+                            btnLeaderMarking.Visible = true; // Show button if CD = 'TT'
+                            btnFind.Visible = true;
+                        }
+                        else
+                        {
+                            btnLeaderMarking.Visible = false; // Hide button otherwise
+                            btnFind.Visible = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking user permission: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            // Maximize the form
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
         }
     }
 }
