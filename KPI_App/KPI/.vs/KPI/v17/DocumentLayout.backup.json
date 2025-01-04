@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\lichsufrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\lichsufrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\lichsufrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\mainscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\totruongchamfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,24 +43,12 @@
       "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\lichsufrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\totruongchamfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\totruongchamfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\totruongchamfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\caidatfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\kpi\\caidatfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\caidatfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\tieuchicanhanfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|d:\\0.vitinh\\toan\\github\\kpi_app\\kpi_app\\kpi\\kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1899BCA-8CF2-4E5A-8F02-484D4D98D69C}|KPI\\KPI.csproj|solutionrelative:kpi\\timkiemfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,37 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "toTruongChamfrm.cs",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
-              "RelativeDocumentMoniker": "KPI\\toTruongChamfrm.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
-              "RelativeToolTip": "KPI\\toTruongChamfrm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T09:59:26.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "lichSufrm.Designer.cs",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.Designer.cs",
-              "RelativeDocumentMoniker": "KPI\\lichSufrm.Designer.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.Designer.cs",
-              "RelativeToolTip": "KPI\\lichSufrm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T09:54:51.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "lichSufrm.cs [Design]",
               "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.cs",
               "RelativeDocumentMoniker": "KPI\\lichSufrm.cs",
@@ -112,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainScreen.cs [Design]",
               "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\MainScreen.cs",
               "RelativeDocumentMoniker": "KPI\\MainScreen.cs",
@@ -124,33 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainScreen.cs",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\MainScreen.cs",
-              "RelativeDocumentMoniker": "KPI\\MainScreen.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\MainScreen.cs",
-              "RelativeToolTip": "KPI\\MainScreen.cs",
-              "ViewState": "AgIAANcAAAAAAAAAAAAUwOMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T04:56:16.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "lichSufrm.cs",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.cs",
-              "RelativeDocumentMoniker": "KPI\\lichSufrm.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.cs",
-              "RelativeToolTip": "KPI\\lichSufrm.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAswBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T09:59:35.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "TieuChiCaNhanfrm.cs [Design]",
               "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\TieuChiCaNhanfrm.cs",
               "RelativeDocumentMoniker": "KPI\\TieuChiCaNhanfrm.cs",
@@ -162,53 +110,102 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "caiDatfrm.cs [Design]",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\caiDatfrm.cs",
-              "RelativeDocumentMoniker": "KPI\\caiDatfrm.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\caiDatfrm.cs [Design]",
-              "RelativeToolTip": "KPI\\caiDatfrm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T09:54:48.916Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "toTruongChamfrm.cs [Design]",
-              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
-              "RelativeDocumentMoniker": "KPI\\toTruongChamfrm.cs",
-              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs [Design]",
-              "RelativeToolTip": "KPI\\toTruongChamfrm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T09:30:29.407Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "TieuChiCaNhanfrm.cs",
               "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\TieuChiCaNhanfrm.cs",
               "RelativeDocumentMoniker": "KPI\\TieuChiCaNhanfrm.cs",
               "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\TieuChiCaNhanfrm.cs",
               "RelativeToolTip": "KPI\\TieuChiCaNhanfrm.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAqwCEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwFoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-03T09:07:40.705Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "timKiemfrm.cs",
               "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\timKiemfrm.cs",
               "RelativeDocumentMoniker": "KPI\\timKiemfrm.cs",
               "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\timKiemfrm.cs",
               "RelativeToolTip": "KPI\\timKiemfrm.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAADwv1YAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-01T06:44:11.014Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainScreen.cs",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\MainScreen.cs",
+              "RelativeDocumentMoniker": "KPI\\MainScreen.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\MainScreen.cs",
+              "RelativeToolTip": "KPI\\MainScreen.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAAK8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T04:56:16.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "lichSufrm.Designer.cs",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.Designer.cs",
+              "RelativeDocumentMoniker": "KPI\\lichSufrm.Designer.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.Designer.cs",
+              "RelativeToolTip": "KPI\\lichSufrm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T09:54:51.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "toTruongChamfrm.cs",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
+              "RelativeDocumentMoniker": "KPI\\toTruongChamfrm.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
+              "RelativeToolTip": "KPI\\toTruongChamfrm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T09:59:26.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "lichSufrm.cs",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.cs",
+              "RelativeDocumentMoniker": "KPI\\lichSufrm.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\lichSufrm.cs",
+              "RelativeToolTip": "KPI\\lichSufrm.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T09:59:35.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "caiDatfrm.cs [Design]",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\caiDatfrm.cs",
+              "RelativeDocumentMoniker": "KPI\\caiDatfrm.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\caiDatfrm.cs [Design]",
+              "RelativeToolTip": "KPI\\caiDatfrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T09:54:48.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "toTruongChamfrm.cs [Design]",
+              "DocumentMoniker": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs",
+              "RelativeDocumentMoniker": "KPI\\toTruongChamfrm.cs",
+              "ToolTip": "D:\\0.VITINH\\Toan\\Github\\KPI_App\\KPI_App\\KPI\\KPI\\toTruongChamfrm.cs [Design]",
+              "RelativeToolTip": "KPI\\toTruongChamfrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T09:30:29.407Z"
             }
           ]
         }

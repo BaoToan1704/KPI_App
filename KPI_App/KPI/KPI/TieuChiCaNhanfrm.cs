@@ -32,7 +32,7 @@ namespace KPI
         private void TieuChiCaNhanfrm_Load(object sender, EventArgs e)
         {
             // Load data for the user
-            LoadDataForUser();
+            LoadDataForUser(userMaNV);
 
             // Make cell enter and exit events for ComboBox
             dataGridView1.CellEnter += DataGridView1_CellEnter;
@@ -53,7 +53,7 @@ namespace KPI
             }
         }
 
-        private void LoadDataForUser()
+        private void LoadDataForUser(string maNV)
         {
             try
             {
@@ -78,18 +78,12 @@ namespace KPI
                     conn.Open();
 
                     // Query to fetch data from both tables based on BP
-                    string dataQuery = @"
-                    SELECT *
-                    FROM diem_cong_table
-                    WHERE BP IS NULL OR BP = @BP
-                    UNION
-                    SELECT *
-                    FROM diem_tru_table
-                    WHERE BP IS NULL OR BP = @BP";
+                    string dataQuery = "SELECT * FROM t12 WHERE MaNV = @MaNV";
+;
 
                     using (MySqlCommand cmd = new MySqlCommand(dataQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@BP", bp != null ? bp : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@MaNV", maNV);
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             adapter.Fill(dataTable);
@@ -320,7 +314,7 @@ namespace KPI
         private void btnReset_Click(object sender, EventArgs e)
         {
             // Reset DataGridView to initial state
-            LoadDataForUser();
+            LoadDataForUser(userMaNV);
 
             // Reset the total and clear all previous adjustments 
             currentTotal = maxTotal;
