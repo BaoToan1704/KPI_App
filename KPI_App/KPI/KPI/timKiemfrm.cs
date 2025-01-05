@@ -88,7 +88,7 @@ namespace KPI
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM t12 WHERE MaNV = @MaNV";
+                    string query = "SELECT `TIÊU CHÍ`, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
                     DataTable dataTable = new DataTable();
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -107,6 +107,12 @@ namespace KPI
             {
                 MessageBox.Show("Error loading employee data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Automatically adjust column widths
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Optionally: Set word wrap for "TIÊU_CHÍ"
+            dataGridView1.Columns["TIÊU CHÍ"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private string GetUserBP(MySqlConnection conn)

@@ -78,7 +78,7 @@ namespace KPI
                     conn.Open();
 
                     // Query to fetch data from both tables based on BP
-                    string dataQuery = "SELECT * FROM t12 WHERE MaNV = @MaNV";
+                    string dataQuery = "SELECT `TIÊU CHÍ`, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
 ;
 
                     using (MySqlCommand cmd = new MySqlCommand(dataQuery, conn))
@@ -239,82 +239,44 @@ namespace KPI
         {
             try
             {
-                // Ensure the DataGridView has a data source
-                DataTable dataTable = (DataTable)dataGridView1.DataSource;
-
-                if (dataTable == null)
-                {
-                    MessageBox.Show("No data to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    using (MySqlTransaction transaction = conn.BeginTransaction())
+                    // Query to update the database
+                    string updateQuery = "UPDATE t12 SET `LAN_PHAM_LOI` = @LAN_PHAM_LOI WHERE MaNV = @MaNV AND `TIÊU CHÍ` = @TIÊU_CHÍ";
+                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                     {
-                        try
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            foreach (DataRow row in dataTable.Rows)
+                            if (row.Cells["LAN_PHAM_LOI"].Value != null)
                             {
-                                // Check if the row has been modified
-                                if (row.RowState == DataRowState.Modified)
-                                {
-                                    // Ensure necessary columns exist in the DataRow
-                                    if (row.Table.Columns.Contains("LAN_PHAM_LOI") && row.Table.Columns.Contains("MaNV"))
-                                    {
-                                        string lanPhamLoi = row["LAN_PHAM_LOI"]?.ToString();
-                                        string maNV = row["MaNV"]?.ToString();
-
-                                        if (!string.IsNullOrEmpty(maNV)) // Validate MaNV
-                                        {
-                                            string updateQuery = @"
-                                    UPDATE `12`
-                                    SET LAN_PHAM_LOI = @LAN_PHAM_LOI
-                                    WHERE MaNV = @MaNV";
-
-                                            using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn, transaction))
-                                            {
-                                                // Add parameters
-                                                cmd.Parameters.AddWithValue("@LAN_PHAM_LOI", lanPhamLoi);
-                                                cmd.Parameters.AddWithValue("@MaNV", maNV);
-
-                                                int rowsAffected = cmd.ExecuteNonQuery();
-                                            }
-                                        }
-                                        
-                                    }
-                                    
-                                }
+                                cmd.Parameters.Clear();
+                                cmd.Parameters.AddWithValue("@LAN_PHAM_LOI", row.Cells["LAN_PHAM_LOI"].Value);
+                                cmd.Parameters.AddWithValue("@MaNV", userMaNV);
+                                cmd.Parameters.AddWithValue("@TIÊU_CHÍ", row.Cells["TIÊU CHÍ"].Value);
+                                cmd.ExecuteNonQuery();
                             }
-
-                            // Commit transaction
-                            transaction.Commit();
-                            MessageBox.Show("Changes saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
+                // Hide the data grid view and show a success message
+                dataGridView1.Visible = false;
+                MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Accept changes in the DataTable
-                dataTable.AcceptChanges();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
-
-
         private void btnReset_Click(object sender, EventArgs e)
         {
-            // Reset DataGridView to initial state
-            LoadDataForUser(userMaNV);
+            // Reset all Lan_PHAM_LOI values to 0
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["LAN_PHAM_LOI"].Value = "0";
+            }
 
             // Reset the total and clear all previous adjustments 
             currentTotal = maxTotal;

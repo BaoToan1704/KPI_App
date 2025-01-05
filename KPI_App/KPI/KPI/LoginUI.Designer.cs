@@ -145,9 +145,10 @@
             txtPass.BackColor = Color.FromArgb(46, 51, 73);
             txtPass.BorderStyle = BorderStyle.None;
             txtPass.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPass.ForeColor = Color.FromArgb(0, 117, 214);
             txtPass.Location = new Point(69, 312);
             txtPass.Name = "txtPass";
-            txtPass.PasswordChar = '*';
+            txtPass.PasswordChar = '•';
             txtPass.PlaceholderText = "Mật khẩu";
             txtPass.Size = new Size(205, 15);
             txtPass.TabIndex = 8;
