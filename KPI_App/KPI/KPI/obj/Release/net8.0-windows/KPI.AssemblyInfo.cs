@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4178359d03543b0bd7acea01766a9d7521cafea5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f68f3fa93cfd6b33eda0b5971239e1bd01f1e3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("KPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

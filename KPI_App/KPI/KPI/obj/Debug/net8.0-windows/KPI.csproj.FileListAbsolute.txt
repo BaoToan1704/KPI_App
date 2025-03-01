@@ -52,6 +52,7 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\K4os.Co
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Office.Interop.Excel.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\MySql.Data.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\MySqlConnector.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
@@ -61,7 +62,15 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\runtime
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Vbe.Interop.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\OFFICE.DLL
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\AxInterop.WMPLib.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.csproj.AssemblyReference.cache
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\AxInterop.WMPLib.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.csproj.ResolveComReference.cache
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.lichSufrm.resources
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.LoginUI.resources
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.MainScreen.resources
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.Properties.Resources.resources
@@ -80,12 +89,3 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\refint\
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.pdb
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.genruntimeconfig.cache
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\ref\KPI.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Interop.WMPLib.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\AxInterop.WMPLib.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\Interop.WMPLib.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\AxInterop.WMPLib.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.csproj.ResolveComReference.cache
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Debug\net8.0-windows\KPI.lichSufrm.resources
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Office.Interop.Excel.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\Microsoft.Vbe.Interop.dll
-D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Debug\net8.0-windows\OFFICE.DLL
