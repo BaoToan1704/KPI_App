@@ -278,6 +278,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1070, 36);
             panel3.TabIndex = 8;
+            panel3.Paint += panel3_Paint;
             panel3.MouseDown += mouseDown_Event;
             panel3.MouseMove += mouseMove_Event;
             panel3.MouseUp += mouseUp_Event;
@@ -329,6 +330,7 @@
             Controls.Add(panel1);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainScreen";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang chủ";

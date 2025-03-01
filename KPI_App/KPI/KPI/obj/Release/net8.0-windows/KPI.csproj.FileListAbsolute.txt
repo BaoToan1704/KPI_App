@@ -48,6 +48,9 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\refin
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.pdb
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.genruntimeconfig.cache
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\ref\KPI.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\CircularProgressBar.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\WinFormAnimation.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.SplashScreen.resources
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\KPI.dll.manifest
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\KPI.application
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.dll.manifest

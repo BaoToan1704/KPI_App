@@ -265,9 +265,17 @@ namespace KPI
                         }
                     }
                 }
-                // Hide the data grid view and show a success message
-                dataGridView1.Visible = false;
-                MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Yes No message box, Bạn chỉ được nộp được 1 lần, bạn có chắc chắn muốn nộp không?
+                DialogResult dialogResult = MessageBox.Show("Bạn chỉ được nộp được 1 lần mỗi tháng, bạn có chắc chắn muốn nộp không?", "Lưu", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dataGridView1.Visible = false;
+                    MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    
+                }
 
             }
             catch (Exception ex)

@@ -242,6 +242,9 @@ namespace KPI
                     ((Excel.Range)worksheet.Columns[i]).AutoFit();
                 }
 
+                // Hide microsoft excel warning window when saving the file with the same name
+                excelApp.DisplayAlerts = false;
+
                 // Save the Excel file
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {

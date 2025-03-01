@@ -180,7 +180,9 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             ImeMode = ImeMode.Off;
+            MaximizeBox = false;
             Name = "LoginUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";

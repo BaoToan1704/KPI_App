@@ -7,6 +7,7 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.p
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\Interop.WMPLib.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\AxInterop.WMPLib.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\BouncyCastle.Cryptography.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\CircularProgressBar.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\Google.Protobuf.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\K4os.Compression.LZ4.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\K4os.Compression.LZ4.Streams.dll
@@ -17,6 +18,7 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.p
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\MySql.Data.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\MySqlConnector.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\System.IO.Pipelines.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\WinFormAnimation.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\ZstdSharp.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\runtimes\win-x64\native\comerr64.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\runtimes\win-x64\native\gssapi64.dll

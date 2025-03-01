@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="KPI.exe" version="0.8.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="app.ico" asmv2:publisher="Xtra Tạ Quang Bửu - IT" asmv2:product="KPI" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <asmv1:assemblyIdentity name="KPI.exe" version="0.8.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="app_desktop.ico" asmv2:publisher="Xtra Tạ Quang Bửu - IT" asmv2:product="KPI" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -55,13 +55,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="app.ico" size="42835">
+  <file name="app_desktop.ico" size="53618">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>sXtabXT6k2X4tGu4GWvORrqyJjR+1PKOPq8AcGQBFIE=</dsig:DigestValue>
+      <dsig:DigestValue>i8dkKddnGWCLf4bYOvBD87Mhyc2wYtswfIGB3F8DHnA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AxInterop.WMPLib.dll" size="53760">
@@ -82,6 +82,15 @@
       <dsig:DigestValue>qoYaz4Uvp3vpRroE++QnJlqWPtT5GS1cCxXQXGRMtB4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="CircularProgressBar.dll" size="17408">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8tjGstT98CCmBQ3aU2UbOJXQzW/WoFfLgMukRsXrG5I=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Google.Protobuf.dll" size="473376">
     <hash>
       <dsig:Transforms>
@@ -97,7 +106,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JUdL129oD8omqQexzF1gedO8IamtfsYnJ4mm6E5MjgY=</dsig:DigestValue>
+      <dsig:DigestValue>aeHRQchNEoNXQm0QQ9hkFOZ7zZ4HPmiu1fYifb1ACnc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="K4os.Compression.LZ4.dll" size="70656">
@@ -127,22 +136,22 @@
       <dsig:DigestValue>Gdc/pYwfbBLGHzDqrZGIG9BvUMr0tGKwYbwbRdCld80=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="KPI.deps.json" size="20804">
+  <file name="KPI.deps.json" size="22023">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>smEk1jHecahxeOPnn3IX8lzljH0FKlj0SE7kfI1rZH4=</dsig:DigestValue>
+      <dsig:DigestValue>CuLJXknjPl1LziAlc60YoQ6CyXorQ56eZK6c5M+EQX8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="KPI.dll" size="385536">
+  <file name="KPI.dll" size="1081856">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Nxol3wgUhRw82/x4PNk3m9+wn4Ivcrv/OrM+Uy3qPxY=</dsig:DigestValue>
+      <dsig:DigestValue>6j7zV3kSvxF7NRpCm2ZL7Eq5Gt3hAiv++BrUnAtPf/g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="KPI.dll.config" size="912">
@@ -154,13 +163,13 @@
       <dsig:DigestValue>k5VpSYi22vHllpCp9DbEfMnIrYrVwjGuspkLxhQatjc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="KPI.exe" size="181760">
+  <file name="KPI.exe" size="192512">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mGlEdkLEgkJtWs3NcovNW4jukaiT+kn+8eRYWVSOWY0=</dsig:DigestValue>
+      <dsig:DigestValue>zrZ+Rs/MvJsj0xMOKgkj10pXes9Ysfan39mlzw2bbI0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="KPI.runtimeconfig.json" size="515">
@@ -287,6 +296,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>6+E55JXedimdw1c1bDtVg4K7XuWjVWVTifH8QpfzXSY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WinFormAnimation.dll" size="38400">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2QUnKbVg2BnI11FJtsqSxIueGxsMyqUAgKdBZtuOqhI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ZstdSharp.dll" size="411136">
