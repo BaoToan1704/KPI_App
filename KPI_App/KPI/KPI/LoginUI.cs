@@ -60,6 +60,10 @@ namespace KPI
                 txtUser.Text = string.Empty;
                 checkBox1.Checked = false;
             }
+
+            // Focus on the second textbox
+            this.ActiveControl = txtPass;
+
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -107,6 +111,7 @@ namespace KPI
                                 TieuChiCaNhanfrm tieuChiCaNhan = new TieuChiCaNhanfrm(userMaNV);
                                 MainScreen mainScreen = new MainScreen(userMaNV);
                                 timKiemfrm timKiemfrm = new timKiemfrm(userMaNV);
+                                toTruongChamfrm toTruongChamfrm = new toTruongChamfrm(userMaNV);
                                 mainScreen.Show();
                                 this.Hide();
                             }

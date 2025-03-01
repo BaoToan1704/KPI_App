@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -26,7 +27,7 @@ namespace KPI
             InitializeComponent();
             this.userMaNV = username;
             lblTotal.Text = currentTotal.ToString();
-
+            
         }
 
         private void TieuChiCaNhanfrm_Load(object sender, EventArgs e)
@@ -36,6 +37,11 @@ namespace KPI
 
             // Make cell enter and exit events for ComboBox
             dataGridView1.CellEnter += DataGridView1_CellEnter;
+            // Handle when the ComboBox is shown in DataGridView
+            dataGridView1.EditingControlShowing += dataGridView1_EditingControlShowing;
+
+            // Handle when a ComboBox value changes
+            dataGridView1.CurrentCellDirtyStateChanged += dataGridView1_CurrentCellDirtyStateChanged;
         }
 
         private void DataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -79,7 +85,7 @@ namespace KPI
 
                     // Query to fetch data from both tables based on BP
                     string dataQuery = "SELECT `TIÊU CHÍ`, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
-;
+                    ;
 
                     using (MySqlCommand cmd = new MySqlCommand(dataQuery, conn))
                     {
@@ -100,7 +106,7 @@ namespace KPI
                     Name = "LAN_PHAM_LOI",
                     HeaderText = "LAN_PHAM_LOI",
                     DataPropertyName = "LAN_PHAM_LOI", // Bind to the column in the DataTable
-                    DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton
+                    DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton,
                 };
 
                 // Replace existing column with ComboBoxColumn from 1 to 4
@@ -284,6 +290,37 @@ namespace KPI
             previousAdjustments.Clear();
             isXLKLActive = false;
 
+        }
+
+        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["LAN_PHAM_LOI"].Index)
+            {
+                ComboBox comboBox = e.Control as ComboBox;
+                if (comboBox != null)
+                {
+                    // Open the dropdown immediately
+                    comboBox.DroppedDown = true;
+                }
+            }
+        }
+
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.IsCurrentCellDirty)
+            {
+                // Commit the change immediately
+                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                // Move focus to avoid needing an extra click
+                dataGridView1.EndEdit();
+                dataGridView1.Focus();
+            }
         }
     }
 }

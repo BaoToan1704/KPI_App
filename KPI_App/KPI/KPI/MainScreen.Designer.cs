@@ -43,14 +43,18 @@
             pictureBox1 = new PictureBox();
             lblTitle = new Label();
             pnlFormLoader = new Panel();
+            lblCalendar = new Label();
+            lblTime = new Label();
+            pictureBox2 = new PictureBox();
+            panel3 = new Panel();
             btn_close = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
-            lblTime = new Label();
-            btnMaximize = new Button();
             btnMinimize = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlFormLoader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -65,7 +69,7 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 577);
+            panel1.Size = new Size(186, 641);
             panel1.TabIndex = 0;
             // 
             // btnHistory
@@ -75,12 +79,14 @@
             btnHistory.FlatStyle = FlatStyle.Flat;
             btnHistory.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHistory.ForeColor = Color.FromArgb(0, 126, 149);
+            btnHistory.Image = (Image)resources.GetObject("btnHistory.Image");
             btnHistory.ImageAlign = ContentAlignment.BottomLeft;
             btnHistory.Location = new Point(0, 270);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(186, 42);
             btnHistory.TabIndex = 7;
             btnHistory.Text = "Lịch sử";
+            btnHistory.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnHistory.UseVisualStyleBackColor = true;
             btnHistory.Click += btnHistory_Click;
             btnHistory.Leave += btnHistory_Leave;
@@ -101,11 +107,11 @@
             btnSetting.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.FromArgb(0, 126, 149);
             btnSetting.ImageAlign = ContentAlignment.BottomLeft;
-            btnSetting.Location = new Point(0, 535);
+            btnSetting.Location = new Point(0, 599);
             btnSetting.Name = "btnSetting";
             btnSetting.Size = new Size(186, 42);
             btnSetting.TabIndex = 5;
-            btnSetting.Text = "Cài đặt";
+            btnSetting.Text = "Đăng xuất";
             btnSetting.UseVisualStyleBackColor = true;
             btnSetting.Click += btnSetting_Click;
             btnSetting.Leave += btnSetting_Leave;
@@ -117,12 +123,14 @@
             btnLeaderMarking.FlatStyle = FlatStyle.Flat;
             btnLeaderMarking.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLeaderMarking.ForeColor = Color.FromArgb(0, 126, 149);
+            btnLeaderMarking.Image = (Image)resources.GetObject("btnLeaderMarking.Image");
             btnLeaderMarking.ImageAlign = ContentAlignment.BottomLeft;
             btnLeaderMarking.Location = new Point(0, 228);
             btnLeaderMarking.Name = "btnLeaderMarking";
             btnLeaderMarking.Size = new Size(186, 42);
             btnLeaderMarking.TabIndex = 4;
             btnLeaderMarking.Text = "Tổ trưởng chấm";
+            btnLeaderMarking.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnLeaderMarking.UseVisualStyleBackColor = true;
             btnLeaderMarking.Click += btnLeaderMarking_Click;
             btnLeaderMarking.Leave += btnLeaderMarking_Leave;
@@ -134,12 +142,14 @@
             btnFind.FlatStyle = FlatStyle.Flat;
             btnFind.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnFind.ForeColor = Color.FromArgb(0, 126, 149);
+            btnFind.Image = (Image)resources.GetObject("btnFind.Image");
             btnFind.ImageAlign = ContentAlignment.BottomLeft;
             btnFind.Location = new Point(0, 186);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(186, 42);
             btnFind.TabIndex = 2;
             btnFind.Text = "Tìm kiếm";
+            btnFind.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnFind.UseVisualStyleBackColor = true;
             btnFind.Click += btnFind_Click;
             btnFind.Leave += btnFind_Leave;
@@ -158,6 +168,7 @@
             btnSelfMarking.Size = new Size(186, 42);
             btnSelfMarking.TabIndex = 1;
             btnSelfMarking.Text = "Tiêu chí cá nhân";
+            btnSelfMarking.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnSelfMarking.UseVisualStyleBackColor = true;
             btnSelfMarking.Click += btnSelfMarking_Click;
             btnSelfMarking.Leave += btnSelfMarking_Leave;
@@ -204,6 +215,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // lblTitle
             // 
@@ -218,19 +230,67 @@
             // 
             // pnlFormLoader
             // 
+            pnlFormLoader.Controls.Add(lblCalendar);
+            pnlFormLoader.Controls.Add(lblTime);
+            pnlFormLoader.Controls.Add(pictureBox2);
             pnlFormLoader.Location = new Point(186, 52);
             pnlFormLoader.Name = "pnlFormLoader";
-            pnlFormLoader.Size = new Size(765, 525);
+            pnlFormLoader.Size = new Size(981, 589);
             pnlFormLoader.TabIndex = 2;
+            pnlFormLoader.Paint += pnlFormLoader_Paint;
+            // 
+            // lblCalendar
+            // 
+            lblCalendar.AutoSize = true;
+            lblCalendar.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCalendar.ForeColor = Color.FromArgb(158, 161, 176);
+            lblCalendar.Location = new Point(331, 352);
+            lblCalendar.Name = "lblCalendar";
+            lblCalendar.Size = new Size(60, 25);
+            lblCalendar.TabIndex = 6;
+            lblCalendar.Text = "Time";
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(367, 306);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(108, 46);
+            lblTime.TabIndex = 5;
+            lblTime.Text = "Time";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(322, 98);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(256, 256);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(0, 1);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1070, 36);
+            panel3.TabIndex = 8;
+            panel3.MouseDown += mouseDown_Event;
+            panel3.MouseMove += mouseMove_Event;
+            panel3.MouseUp += mouseUp_Event;
             // 
             // btn_close
             // 
+            btn_close.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_close.FlatAppearance.BorderSize = 0;
             btn_close.FlatStyle = FlatStyle.Flat;
             btn_close.ForeColor = Color.White;
-            btn_close.Location = new Point(914, 12);
+            btn_close.Location = new Point(1148, 1);
             btn_close.Name = "btn_close";
-            btn_close.Size = new Size(25, 25);
+            btn_close.Size = new Size(30, 30);
             btn_close.TabIndex = 3;
             btn_close.Text = "X";
             btn_close.UseVisualStyleBackColor = true;
@@ -239,40 +299,18 @@
             // 
             // timer1
             // 
+            timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
-            // 
-            // lblTime
-            // 
-            lblTime.AutoSize = true;
-            lblTime.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTime.ForeColor = Color.FromArgb(158, 161, 176);
-            lblTime.Location = new Point(456, 30);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(42, 16);
-            lblTime.TabIndex = 5;
-            lblTime.Text = "Time";
-            // 
-            // btnMaximize
-            // 
-            btnMaximize.FlatAppearance.BorderSize = 0;
-            btnMaximize.FlatStyle = FlatStyle.Flat;
-            btnMaximize.ForeColor = Color.White;
-            btnMaximize.Location = new Point(883, 12);
-            btnMaximize.Name = "btnMaximize";
-            btnMaximize.Size = new Size(25, 25);
-            btnMaximize.TabIndex = 6;
-            btnMaximize.Text = "▢";
-            btnMaximize.UseVisualStyleBackColor = true;
-            btnMaximize.Click += btnMaximize_Click;
             // 
             // btnMinimize
             // 
+            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimize.FlatAppearance.BorderSize = 0;
             btnMinimize.FlatStyle = FlatStyle.Flat;
             btnMinimize.ForeColor = Color.White;
-            btnMinimize.Location = new Point(852, 12);
+            btnMinimize.Location = new Point(1112, 1);
             btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(25, 25);
+            btnMinimize.Size = new Size(30, 30);
             btnMinimize.TabIndex = 7;
             btnMinimize.Text = "─";
             btnMinimize.UseVisualStyleBackColor = true;
@@ -283,14 +321,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(951, 577);
+            ClientSize = new Size(1179, 643);
             Controls.Add(btnMinimize);
-            Controls.Add(btnMaximize);
-            Controls.Add(lblTime);
             Controls.Add(btn_close);
             Controls.Add(pnlFormLoader);
             Controls.Add(lblTitle);
             Controls.Add(panel1);
+            Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainScreen";
             StartPosition = FormStartPosition.CenterScreen;
@@ -300,6 +337,9 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlFormLoader.ResumeLayout(false);
+            pnlFormLoader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,8 +361,10 @@
         private Button btn_close;
         private System.Windows.Forms.Timer timer1;
         private Label lblTime;
-        private Button btnMaximize;
         private Button btnHistory;
         private Button btnMinimize;
+        private Label lblCalendar;
+        private PictureBox pictureBox2;
+        private Panel panel3;
     }
 }

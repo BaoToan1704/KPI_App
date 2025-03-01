@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
             label3 = new Label();
@@ -42,31 +44,42 @@
             // 
             panel3.Location = new Point(12, 44);
             panel3.Name = "panel3";
-            panel3.Size = new Size(709, 443);
+            panel3.Size = new Size(953, 587);
             panel3.TabIndex = 4;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.BackgroundColor = Color.FromArgb(46, 51, 73);
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 51, 73);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 42, 64);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(37, 42, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.FromArgb(46, 51, 73);
             dataGridView1.Location = new Point(12, 44);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(709, 469);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.DataError += dataGridView1_DataError;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73);
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-            dataGridView1.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-            dataGridView1.DefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64);
-            dataGridView1.DefaultCellStyle.ForeColor = Color.White;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(37, 42, 64);
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridView1.BackgroundColor = Color.FromArgb(24, 30, 54);
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.GridColor = Color.FromArgb(46, 51, 73);
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.Size = new Size(1036, 587);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellPainting += dataGridView1_CellPainting;
+            dataGridView1.CurrentCellDirtyStateChanged += dataGridView1_CurrentCellDirtyStateChanged;
+            dataGridView1.DataError += dataGridView1_DataError;
+            dataGridView1.EditingControlShowing += dataGridView1_EditingControlShowing;
             // 
             // label3
             // 
@@ -98,7 +111,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(158, 161, 176);
-            lblTitle.Location = new Point(267, 10);
+            lblTitle.Location = new Point(308, 13);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(137, 25);
             lblTitle.TabIndex = 7;
@@ -109,7 +122,7 @@
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotal.ForeColor = Color.FromArgb(158, 161, 176);
-            lblTotal.Location = new Point(400, 10);
+            lblTotal.Location = new Point(441, 13);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(51, 25);
             lblTotal.TabIndex = 8;
@@ -121,7 +134,7 @@
             btnReset.FlatStyle = FlatStyle.Flat;
             btnReset.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReset.ForeColor = Color.Snow;
-            btnReset.Location = new Point(610, 12);
+            btnReset.Location = new Point(657, 12);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(111, 26);
             btnReset.TabIndex = 9;
@@ -134,7 +147,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 525);
+            ClientSize = new Size(1060, 643);
             Controls.Add(btnReset);
             Controls.Add(lblTotal);
             Controls.Add(lblTitle);

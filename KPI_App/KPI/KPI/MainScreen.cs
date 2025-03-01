@@ -19,13 +19,14 @@ namespace KPI
             int nHeightEllipse
 
         );
+        bool mouseDown;
+        private Point offSet;
         private string userMaNV;
         private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // Your DB connection string
         public MainScreen(string username)
         {
             InitializeComponent();
             this.userMaNV = username;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             //btnSelfMarking.BackColor = Color.FromArgb(46, 51, 73);
         }
 
@@ -71,7 +72,7 @@ namespace KPI
 
             lblTitle.Text = "Tổ trưởng chấm";
             this.pnlFormLoader.Controls.Clear();
-            toTruongChamfrm tieuChiCaNhanfrm = new toTruongChamfrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            toTruongChamfrm tieuChiCaNhanfrm = new toTruongChamfrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             toTruongChamfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
             tieuChiCaNhanfrm.Show();
@@ -101,13 +102,19 @@ namespace KPI
             pnlNav.Left = btnSetting.Left;
             btnSetting.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Cài đặt";
-            this.pnlFormLoader.Controls.Clear();
-            caiDatfrm tieuChiCaNhanfrm = new caiDatfrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            caiDatfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
-            this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
-            tieuChiCaNhanfrm.Show();
-            this.pnlFormLoader.ResumeLayout(false);
+            // Logout 
+            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginUI login = new LoginUI();
+                login.Show();
+
+            }
+            else
+            {
+                btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+            }
+
         }
 
         private void btnSelfMarking_Leave(object sender, EventArgs e)
@@ -166,8 +173,10 @@ namespace KPI
             //tieuChiCaNhanfrm.Show();
             //this.pnlFormLoader.ResumeLayout(false);
 
-            lblTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblCalendar.Text = DateTime.Now.ToLongDateString();
             timer1.Start();
+
             CheckUserPermission();
 
 
@@ -210,7 +219,7 @@ namespace KPI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -219,16 +228,54 @@ namespace KPI
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
+                Region = null;
             }
             else
             {
                 WindowState = FormWindowState.Normal;
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Load MainScreen form
+        }
+
+        private void mouseDown_Event(object sender, MouseEventArgs e)
+        {
+            offSet.X = e.X;
+            offSet.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void mouseMove_Event(object sender, MouseEventArgs e)
+        {
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - offSet.X, currentScreenPos.Y - offSet.Y);
+            }
+        }
+
+        private void mouseUp_Event(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void pnlFormLoader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
 
         }
     }
