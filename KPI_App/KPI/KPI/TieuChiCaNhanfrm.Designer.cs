@@ -28,24 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TieuChiCaNhanfrm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel3 = new Panel();
+            lblCongrat = new Label();
+            pBoxCongrat = new PictureBox();
             dataGridView1 = new DataGridView();
             label3 = new Label();
             btnUpdate = new Button();
             lblTitle = new Label();
             lblTotal = new Label();
             btnReset = new Button();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pBoxCongrat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel3
             // 
+            panel3.Controls.Add(lblCongrat);
+            panel3.Controls.Add(pBoxCongrat);
+            panel3.Controls.Add(dataGridView1);
             panel3.Location = new Point(12, 44);
             panel3.Name = "panel3";
-            panel3.Size = new Size(953, 587);
+            panel3.Size = new Size(1036, 562);
             panel3.TabIndex = 4;
+            // 
+            // lblCongrat
+            // 
+            lblCongrat.AutoSize = true;
+            lblCongrat.Font = new Font("Consolas", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCongrat.ForeColor = Color.FromArgb(43, 182, 115);
+            lblCongrat.Location = new Point(277, 461);
+            lblCongrat.Name = "lblCongrat";
+            lblCongrat.Size = new Size(449, 32);
+            lblCongrat.TabIndex = 10;
+            lblCongrat.Text = "BẠN ĐÃ NỘP KPI THÁNG NÀY RỒI!";
+            lblCongrat.Visible = false;
+            // 
+            // pBoxCongrat
+            // 
+            pBoxCongrat.Image = (Image)resources.GetObject("pBoxCongrat.Image");
+            pBoxCongrat.Location = new Point(257, -22);
+            pBoxCongrat.Name = "pBoxCongrat";
+            pBoxCongrat.Size = new Size(480, 480);
+            pBoxCongrat.SizeMode = PictureBoxSizeMode.StretchImage;
+            pBoxCongrat.TabIndex = 10;
+            pBoxCongrat.TabStop = false;
+            pBoxCongrat.Visible = false;
             // 
             // dataGridView1
             // 
@@ -71,10 +102,10 @@
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.FromArgb(46, 51, 73);
-            dataGridView1.Location = new Point(12, 44);
+            dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1036, 587);
+            dataGridView1.Size = new Size(1036, 556);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellPainting += dataGridView1_CellPainting;
             dataGridView1.CurrentCellDirtyStateChanged += dataGridView1_CurrentCellDirtyStateChanged;
@@ -152,7 +183,6 @@
             Controls.Add(lblTotal);
             Controls.Add(lblTitle);
             Controls.Add(btnUpdate);
-            Controls.Add(dataGridView1);
             Controls.Add(panel3);
             Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
@@ -160,6 +190,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TieuChiCaNhanfrm";
             Load += TieuChiCaNhanfrm_Load;
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pBoxCongrat).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -174,5 +207,7 @@
         private Label lblTitle;
         private Label lblTotal;
         private Button btnReset;
+        private PictureBox pBoxCongrat;
+        private Label lblCongrat;
     }
 }

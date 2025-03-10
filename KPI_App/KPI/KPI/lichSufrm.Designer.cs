@@ -31,7 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitle = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxMonth = new ComboBox();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -47,21 +47,22 @@
             lblTitle.TabIndex = 11;
             lblTitle.Text = "Tháng: ";
             // 
-            // comboBox1
+            // comboBoxMonth
             // 
-            comboBox1.BackColor = Color.FromArgb(24, 30, 54);
-            comboBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBox1.ForeColor = Color.White;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(110, 9);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(133, 24);
-            comboBox1.TabIndex = 10;
+            comboBoxMonth.BackColor = Color.FromArgb(24, 30, 54);
+            comboBoxMonth.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxMonth.ForeColor = Color.White;
+            comboBoxMonth.FormattingEnabled = true;
+            comboBoxMonth.Location = new Point(110, 9);
+            comboBoxMonth.Name = "comboBoxMonth";
+            comboBoxMonth.Size = new Size(133, 24);
+            comboBoxMonth.TabIndex = 10;
+            comboBoxMonth.SelectedIndexChanged += comboBoxMonth_SelectedIndexChanged;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.BackgroundColor = Color.FromArgb(24, 30, 54);
+            dataGridView1.BackgroundColor = Color.FromArgb(46, 51, 73);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 51, 73);
@@ -85,7 +86,7 @@
             dataGridView1.Location = new Point(12, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(709, 461);
+            dataGridView1.Size = new Size(1036, 556);
             dataGridView1.TabIndex = 9;
             // 
             // lichSufrm
@@ -93,9 +94,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 499);
+            ClientSize = new Size(1060, 643);
             Controls.Add(lblTitle);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxMonth);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "lichSufrm";
@@ -109,7 +110,7 @@
         #endregion
 
         private Label lblTitle;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxMonth;
         private DataGridView dataGridView1;
     }
 }

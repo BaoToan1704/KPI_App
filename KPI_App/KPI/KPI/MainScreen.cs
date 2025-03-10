@@ -22,11 +22,13 @@ namespace KPI
         bool mouseDown;
         private Point offSet;
         private string userMaNV;
+        private string selectedMonth;
         private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // Your DB connection string
-        public MainScreen(string username)
+        public MainScreen(string username, string selectedMonth)
         {
             InitializeComponent();
             this.userMaNV = username;
+            this.selectedMonth = selectedMonth;
             //btnSelfMarking.BackColor = Color.FromArgb(46, 51, 73);
         }
 
@@ -39,7 +41,7 @@ namespace KPI
 
             lblTitle.Text = "Tiêu chí cá nhân";
             this.pnlFormLoader.Controls.Clear();
-            TieuChiCaNhanfrm tieuChiCaNhanfrm = new TieuChiCaNhanfrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            TieuChiCaNhanfrm tieuChiCaNhanfrm = new TieuChiCaNhanfrm(userMaNV, selectedMonth) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             tieuChiCaNhanfrm.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
             tieuChiCaNhanfrm.Show();
@@ -56,7 +58,7 @@ namespace KPI
 
             lblTitle.Text = "Tìm kiếm";
             this.pnlFormLoader.Controls.Clear();
-            timKiemfrm tieuChiCaNhanfrm = new timKiemfrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            timKiemfrm tieuChiCaNhanfrm = new timKiemfrm(userMaNV, selectedMonth) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             timKiemfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
             tieuChiCaNhanfrm.Show();
@@ -72,7 +74,7 @@ namespace KPI
 
             lblTitle.Text = "Tổ trưởng chấm";
             this.pnlFormLoader.Controls.Clear();
-            toTruongChamfrm tieuChiCaNhanfrm = new toTruongChamfrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            toTruongChamfrm tieuChiCaNhanfrm = new toTruongChamfrm(userMaNV, selectedMonth) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             toTruongChamfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
             tieuChiCaNhanfrm.Show();
@@ -88,10 +90,42 @@ namespace KPI
 
             lblTitle.Text = "Lịch sử nộp KPI";
             this.pnlFormLoader.Controls.Clear();
-            lichSufrm tieuChiCaNhanfrm = new lichSufrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            lichSufrm tieuChiCaNhanfrm = new lichSufrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             lichSufrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(tieuChiCaNhanfrm);
             tieuChiCaNhanfrm.Show();
+            this.pnlFormLoader.ResumeLayout(false);
+        }
+
+        private void btnGeneral_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnGeneral.Height;
+            pnlNav.Top = btnGeneral.Top;
+            pnlNav.Left = btnGeneral.Left;
+            btnGeneral.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Tổng hợp";
+            this.pnlFormLoader.Controls.Clear();
+            generalfrm generalfrm = new generalfrm(userMaNV, selectedMonth) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            generalfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
+            this.pnlFormLoader.Controls.Add(generalfrm);
+            generalfrm.Show();
+            this.pnlFormLoader.ResumeLayout(false);
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnConfig.Height;
+            pnlNav.Top = btnConfig.Top;
+            pnlNav.Left = btnConfig.Left;
+            btnConfig.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Điều chỉnh";
+            this.pnlFormLoader.Controls.Clear();
+            configAdminfrm configAdminfrm = new configAdminfrm(userMaNV) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            configAdminfrm.ActiveForm.FormBorderStyle = FormBorderStyle.None;
+            this.pnlFormLoader.Controls.Add(configAdminfrm);
+            configAdminfrm.Show();
             this.pnlFormLoader.ResumeLayout(false);
         }
 
@@ -114,7 +148,6 @@ namespace KPI
             {
                 btnSetting.BackColor = Color.FromArgb(24, 30, 54);
             }
-
         }
 
         private void btnSelfMarking_Leave(object sender, EventArgs e)
@@ -142,6 +175,17 @@ namespace KPI
             btnSetting.BackColor = Color.FromArgb(24, 30, 54);
         }
 
+        private void btnGeneral_Leave(object sender, EventArgs e)
+        {
+            btnGeneral.BackColor = Color.FromArgb(24, 30, 54);
+
+        }
+        private void btnConfig_Leave(object sender, EventArgs e)
+        {
+            btnConfig.BackColor = Color.FromArgb(24, 30, 54);
+
+        }
+
         private void btn_close_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn thoát?", "Exit", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -163,7 +207,16 @@ namespace KPI
         private void MainScreen_Load_1(object sender, EventArgs e)
         {
             // Display user's MaNV in label2
-            label2.Text = userMaNV;
+            string userName = GetUserName(userMaNV);
+            if (!string.IsNullOrEmpty(userName))
+            {
+                label2.Text = userName; // Display name
+            }
+            else
+            {
+                label2.Text = userMaNV; // Fallback to ID if name not found
+            }
+
 
             //lblTitle.Text = "Tiêu chí cá nhân";
             //this.pnlFormLoader.Controls.Clear();
@@ -181,6 +234,36 @@ namespace KPI
 
 
         }
+
+        private string GetUserName(string maNV)
+        {
+            string userName = null;
+            string query = "SELECT HOTEN FROM user WHERE MaNV = @MaNV";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNV", maNV);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            userName = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy tên người dùng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return userName;
+        }
+
 
         private void CheckUserPermission()
         {
@@ -202,11 +285,36 @@ namespace KPI
                         {
                             btnLeaderMarking.Visible = true; // Show button if CD = 'TT'
                             btnFind.Visible = true;
+                            btnGeneral.Visible = true;
+                            btnConfig.Visible = false;
+                        }
+                        else if (result != null && result.ToString() == "admin") // Show button if CD = 'admin'
+                        {
+                            btnFind.Visible = true;
+                            btnConfig.Visible = true;
+                            btnLeaderMarking.Visible = false;
+                            btnGeneral.Visible = true;
+                            btnLeaderMarking.Visible = false;
+                            btnHistory.Visible = false;
                         }
                         else
                         {
                             btnLeaderMarking.Visible = false; // Hide button otherwise
                             btnFind.Visible = false;
+                            btnGeneral.Visible = false;
+                            btnConfig.Visible = false;
+                            if (result != null && (result.ToString() == "TT" || result.ToString() == "GĐ"))
+                            {
+                                btnLeaderMarking.Visible = true; // Show button if CD = 'TT' or 'GĐ'
+                                btnFind.Visible = true;
+                                btnGeneral.Visible = true;
+                            }
+                            else
+                            {
+                                btnLeaderMarking.Visible = false; // Hide button otherwise
+                                btnFind.Visible = false;
+                                btnGeneral.Visible = false;
+                            }
                         }
                     }
                 }

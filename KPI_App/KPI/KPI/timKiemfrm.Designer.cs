@@ -34,6 +34,7 @@
             comboBox1 = new ComboBox();
             lblTitle = new Label();
             btnPrint = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1036, 587);
+            dataGridView1.Size = new Size(1036, 554);
             dataGridView1.TabIndex = 0;
             // 
             // comboBox1
@@ -75,9 +76,9 @@
             comboBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(260, 12);
+            comboBox1.Location = new Point(121, 12);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(133, 24);
+            comboBox1.Size = new Size(202, 24);
             comboBox1.TabIndex = 1;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
@@ -86,11 +87,11 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(158, 161, 176);
-            lblTitle.Location = new Point(12, 12);
+            lblTitle.Location = new Point(20, 12);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(242, 25);
+            lblTitle.Size = new Size(95, 25);
             lblTitle.TabIndex = 8;
-            lblTitle.Text = "Tìm kiếm theo mã NV:";
+            lblTitle.Text = "Tìm NV:";
             // 
             // btnPrint
             // 
@@ -98,13 +99,25 @@
             btnPrint.FlatStyle = FlatStyle.Flat;
             btnPrint.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPrint.ForeColor = Color.Snow;
-            btnPrint.Location = new Point(422, 10);
+            btnPrint.Location = new Point(841, 12);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(147, 26);
+            btnPrint.Size = new Size(129, 26);
             btnPrint.TabIndex = 12;
-            btnPrint.Text = "XUẤT FILE EXCEL";
+            btnPrint.Text = "Xuất File Excel";
             btnPrint.UseVisualStyleBackColor = false;
             btnPrint.Click += btnPrint_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(158, 161, 176);
+            label1.Location = new Point(538, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 25);
+            label1.TabIndex = 13;
+            label1.Text = "aduvip";
+            label1.Visible = false;
             // 
             // timKiemfrm
             // 
@@ -112,6 +125,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1060, 643);
+            Controls.Add(label1);
             Controls.Add(btnPrint);
             Controls.Add(lblTitle);
             Controls.Add(comboBox1);
@@ -132,5 +146,6 @@
         private ComboBox comboBox1;
         private Label lblTitle;
         private Button btnPrint;
+        private Label label1;
     }
 }

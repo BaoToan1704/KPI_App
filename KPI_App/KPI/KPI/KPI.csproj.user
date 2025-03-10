@@ -4,6 +4,12 @@
     <_LastSelectedProfileId>D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="configAdminfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="createAccountfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="lichSufrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +20,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LoginUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="generalfrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SplashScreen.cs">

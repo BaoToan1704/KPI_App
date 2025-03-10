@@ -11,11 +11,12 @@ namespace KPI
     {
         private string userMaNV; // Logged-in user's MaNV
         private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
-
-        public timKiemfrm(string username)
+        private string selectedMonth;
+        public timKiemfrm(string username, string selectedMonth)
         {
             this.userMaNV = username;
             InitializeComponent();
+            this.selectedMonth = selectedMonth;
         }
 
         private void timKiemfrm_Load(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace KPI
                     }
 
                     // Populate ComboBox with employees in the same department (BP)
-                    string query = "SELECT MaNV FROM user WHERE BP = @BP";
+                    string query = "SELECT MaNV, HOTEN FROM user WHERE BP = @BP";
                     DataTable employeeTable = new DataTable();
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -54,10 +55,28 @@ namespace KPI
                         }
                     }
 
-                    comboBox1.DisplayMember = "MaNV";
+                    comboBox1.DisplayMember = "HOTEN";
                     comboBox1.ValueMember = "MaNV";
                     comboBox1.DataSource = employeeTable;
                     comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
+
+                    // If admin is logged in, show all employees in the ComboBox
+                    if (userMaNV == "admin")
+                    {
+                        query = "SELECT MaNV, HOTEN FROM user";
+                        employeeTable = new DataTable();
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                            {
+                                adapter.Fill(employeeTable);
+                            }
+                        }
+                        comboBox1.DisplayMember = "HOTEN";
+                        comboBox1.ValueMember = "MaNV";
+                        comboBox1.DataSource = employeeTable;
+                        comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
+                    }
                 }
             }
             catch (Exception ex)
@@ -89,7 +108,7 @@ namespace KPI
                 {
                     conn.Open();
 
-                    string query = "SELECT `TIÊU CHÍ`, TO_TRUONG_CHAM,LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
+                    string query = $"SELECT `TIÊU CHÍ`, TO_TRUONG_CHAM,LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth} WHERE MaNV = @MaNV";
                     DataTable dataTable = new DataTable();
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -195,7 +214,7 @@ namespace KPI
 
                 // Set Column Headers (starting from A10)
                 int startRow = 9;
-                
+
                 for (int i = 0; i < dataGridView1.Columns.Count; i++)
                 {
                     Excel.Range headerCell = (Excel.Range)worksheet.Cells[startRow, i + 1];
@@ -270,6 +289,11 @@ namespace KPI
             {
                 MessageBox.Show("Error exporting to Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

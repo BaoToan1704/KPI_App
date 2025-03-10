@@ -51,6 +51,12 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\ref\K
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\CircularProgressBar.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\WinFormAnimation.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.SplashScreen.resources
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\aa\KPI.resources.dll
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.configAdminfrm.resources
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.createAccountfrm.resources
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.generalfrm.resources
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.configAdminfrm.aa.resources
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\aa\KPI.resources.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\KPI.dll.manifest
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\KPI.application
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\obj\Release\net8.0-windows\KPI.dll.manifest

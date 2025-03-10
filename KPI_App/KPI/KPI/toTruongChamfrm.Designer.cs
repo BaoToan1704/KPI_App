@@ -36,6 +36,7 @@
             comboBox1 = new ComboBox();
             btnUpdate = new Button();
             btnReset = new Button();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -45,7 +46,7 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(12, 40);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1020, 587);
+            panel1.Size = new Size(1020, 564);
             panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -75,7 +76,7 @@
             dataGridView1.Location = new Point(3, 1);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1013, 587);
+            dataGridView1.Size = new Size(1013, 560);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellEnter += dataGridView1_CellEnter;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
@@ -90,9 +91,9 @@
             lblTitle.ForeColor = Color.FromArgb(158, 161, 176);
             lblTitle.Location = new Point(12, 9);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(242, 25);
+            lblTitle.Size = new Size(112, 25);
             lblTitle.TabIndex = 10;
-            lblTitle.Text = "Tìm kiếm theo mã NV:";
+            lblTitle.Text = "Chọn NV:";
             // 
             // comboBox1
             // 
@@ -100,9 +101,9 @@
             comboBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(260, 9);
+            comboBox1.Location = new Point(130, 9);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(133, 24);
+            comboBox1.Size = new Size(191, 24);
             comboBox1.TabIndex = 9;
             comboBox1.Text = "Chọn NV";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
@@ -114,7 +115,7 @@
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.Snow;
-            btnUpdate.Location = new Point(399, 9);
+            btnUpdate.Location = new Point(327, 8);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(111, 26);
             btnUpdate.TabIndex = 11;
@@ -136,12 +137,24 @@
             btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += btnReset_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(158, 161, 176);
+            label1.Location = new Point(505, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 20);
+            label1.TabIndex = 14;
+            label1.Text = "aduvip";
+            // 
             // toTruongChamfrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1060, 643);
+            Controls.Add(label1);
             Controls.Add(btnReset);
             Controls.Add(btnUpdate);
             Controls.Add(lblTitle);
@@ -165,5 +178,6 @@
         private ComboBox comboBox1;
         private Button btnUpdate;
         private Button btnReset;
+        private Label label1;
     }
 }

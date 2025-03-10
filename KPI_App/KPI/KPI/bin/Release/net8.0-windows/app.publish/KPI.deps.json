@@ -19,6 +19,11 @@
         },
         "runtime": {
           "KPI.dll": {}
+        },
+        "resources": {
+          "aa/KPI.resources.dll": {
+            "locale": "aa"
+          }
         }
       },
       "BouncyCastle.Cryptography/2.3.1": {

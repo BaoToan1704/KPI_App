@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             panel1 = new Panel();
+            btnConfig = new Button();
+            btnGeneral = new Button();
             btnHistory = new Button();
             pnlNav = new Panel();
             btnSetting = new Button();
@@ -39,7 +41,6 @@
             btnSelfMarking = new Button();
             panel2 = new Panel();
             label2 = new Label();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
             lblTitle = new Label();
             pnlFormLoader = new Panel();
@@ -60,6 +61,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.Controls.Add(btnConfig);
+            panel1.Controls.Add(btnGeneral);
             panel1.Controls.Add(btnHistory);
             panel1.Controls.Add(pnlNav);
             panel1.Controls.Add(btnSetting);
@@ -71,6 +74,44 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(186, 641);
             panel1.TabIndex = 0;
+            // 
+            // btnConfig
+            // 
+            btnConfig.Dock = DockStyle.Top;
+            btnConfig.FlatAppearance.BorderSize = 0;
+            btnConfig.FlatStyle = FlatStyle.Flat;
+            btnConfig.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfig.ForeColor = Color.FromArgb(0, 126, 149);
+            btnConfig.Image = (Image)resources.GetObject("btnConfig.Image");
+            btnConfig.ImageAlign = ContentAlignment.BottomLeft;
+            btnConfig.Location = new Point(0, 354);
+            btnConfig.Name = "btnConfig";
+            btnConfig.Size = new Size(186, 42);
+            btnConfig.TabIndex = 9;
+            btnConfig.Text = "Điều chỉnh";
+            btnConfig.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnConfig.UseVisualStyleBackColor = true;
+            btnConfig.Click += btnConfig_Click;
+            btnConfig.Leave += btnConfig_Leave;
+            // 
+            // btnGeneral
+            // 
+            btnGeneral.Dock = DockStyle.Top;
+            btnGeneral.FlatAppearance.BorderSize = 0;
+            btnGeneral.FlatStyle = FlatStyle.Flat;
+            btnGeneral.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGeneral.ForeColor = Color.FromArgb(0, 126, 149);
+            btnGeneral.Image = (Image)resources.GetObject("btnGeneral.Image");
+            btnGeneral.ImageAlign = ContentAlignment.BottomLeft;
+            btnGeneral.Location = new Point(0, 312);
+            btnGeneral.Name = "btnGeneral";
+            btnGeneral.Size = new Size(186, 42);
+            btnGeneral.TabIndex = 8;
+            btnGeneral.Text = "Tổng hợp";
+            btnGeneral.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnGeneral.UseVisualStyleBackColor = true;
+            btnGeneral.Click += btnGeneral_Click;
+            btnGeneral.Leave += btnGeneral_Leave;
             // 
             // btnHistory
             // 
@@ -96,7 +137,7 @@
             pnlNav.BackColor = Color.FromArgb(0, 126, 249);
             pnlNav.Location = new Point(0, 150);
             pnlNav.Name = "pnlNav";
-            pnlNav.Size = new Size(3, 100);
+            pnlNav.Size = new Size(3, 203);
             pnlNav.TabIndex = 6;
             // 
             // btnSetting
@@ -176,7 +217,6 @@
             // panel2
             // 
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
@@ -189,22 +229,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 126, 149);
-            label2.Location = new Point(100, 85);
+            label2.Location = new Point(12, 75);
             label2.Name = "label2";
             label2.Size = new Size(49, 16);
             label2.TabIndex = 2;
             label2.Text = "MaNV";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 126, 149);
-            label1.Location = new Point(34, 85);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Xin chào,";
             // 
             // pictureBox1
             // 
@@ -351,7 +380,6 @@
         private Panel panel1;
         private Panel panel2;
         private PictureBox pictureBox1;
-        private Label label1;
         private Label label2;
         private Button btnSelfMarking;
         private Button btnSetting;
@@ -368,5 +396,7 @@
         private Label lblCalendar;
         private PictureBox pictureBox2;
         private Panel panel3;
+        private Button btnGeneral;
+        private Button btnConfig;
     }
 }

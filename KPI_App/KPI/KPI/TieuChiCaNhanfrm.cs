@@ -19,13 +19,15 @@ namespace KPI
         private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // DB connection string
         private int maxTotal = 100;
         private int currentTotal = 100;
+        private string selectedMonth;
 
         private ComboBox activeComboBox = null;
 
-        public TieuChiCaNhanfrm(string username)
+        public TieuChiCaNhanfrm(string username, string selectedMonth)
         {
             InitializeComponent();
             this.userMaNV = username;
+            this.selectedMonth = selectedMonth;
             lblTotal.Text = currentTotal.ToString();
             
         }
@@ -42,10 +44,12 @@ namespace KPI
 
             // Handle when a ComboBox value changes
             dataGridView1.CurrentCellDirtyStateChanged += dataGridView1_CurrentCellDirtyStateChanged;
+
         }
 
         private void DataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+
             var column = dataGridView1.Columns["LAN_PHAM_LOI"];
             if (column != null && e.ColumnIndex == column.Index && e.RowIndex >= 0)
             {
@@ -57,6 +61,19 @@ namespace KPI
                     activeComboBox = comboBox;
                 }
             }
+
+            if (e.ColumnIndex == dataGridView1.Columns["LAN_PHAM_LOI"].Index && e.RowIndex >= 0)
+            {
+                // Reset colors for all rows
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64); 
+                    row.DefaultCellStyle.ForeColor = Color.White;  // Default text color
+                }
+
+                // Change color of the selected row
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(34, 44, 89);
+            }
         }
 
         private void LoadDataForUser(string maNV)
@@ -67,8 +84,6 @@ namespace KPI
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    // Query to get BP for the logged-in user
                     string userQuery = "SELECT BP FROM user WHERE MaNV = @MaNV";
                     using (MySqlCommand cmd = new MySqlCommand(userQuery, conn))
                     {
@@ -82,10 +97,7 @@ namespace KPI
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    // Query to fetch data from both tables based on BP
-                    string dataQuery = "SELECT `TIÊU CHÍ`, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
-                    ;
+                    string dataQuery = $"SELECT `TIÊU CHÍ`, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth} WHERE MaNV = @MaNV";
 
                     using (MySqlCommand cmd = new MySqlCommand(dataQuery, conn))
                     {
@@ -100,47 +112,69 @@ namespace KPI
                 // Bind data to DataGridView
                 dataGridView1.DataSource = dataTable;
 
-                // Add a ComboBoxColumn for LAN_PHAM_LOI
-                var comboBoxColumn = new DataGridViewComboBoxColumn
+                // Check if all LAN_PHAM_LOI values are 0
+                bool allZero = dataTable.AsEnumerable().All(row => row["LAN_PHAM_LOI"] != DBNull.Value && Convert.ToInt32(row["LAN_PHAM_LOI"]) == 0);
+
+                // Update label1 based on check
+                if (allZero)
+                {
+                    dataGridView1.Visible = true;
+                    btnUpdate.Visible = true;
+                    btnReset.Visible = true;
+                    lblTotal.Visible = true;
+                    lblTitle.Visible = true;
+                    pBoxCongrat.Visible = false;
+                    lblCongrat.Visible = false;
+                }
+                else
+                {
+                    dataGridView1.Visible = false;
+                    btnUpdate.Visible = false;
+                    btnReset.Visible = false;
+                    lblTotal.Visible = false;
+                    lblTitle.Visible = false;
+                    pBoxCongrat.Visible = true;
+                    lblCongrat.Visible = true;
+                }
+
+                // Remove existing column
+                if (dataGridView1.Columns.Contains("LAN_PHAM_LOI"))
+                {
+                    dataGridView1.Columns.Remove("LAN_PHAM_LOI");
+                }
+
+                // Add a TextBoxColumn instead of a ComboBoxColumn
+                var textBoxColumn = new DataGridViewTextBoxColumn
                 {
                     Name = "LAN_PHAM_LOI",
                     HeaderText = "LAN_PHAM_LOI",
-                    DataPropertyName = "LAN_PHAM_LOI", // Bind to the column in the DataTable
-                    DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton,
+                    DataPropertyName = "LAN_PHAM_LOI",
                 };
 
-                // Replace existing column with ComboBoxColumn from 1 to 4
-                dataGridView1.Columns.Remove("LAN_PHAM_LOI");
-                dataGridView1.Columns.Insert(1, comboBoxColumn);
+                dataGridView1.Columns.Insert(1, textBoxColumn);
 
-                // Set the ComboBoxColumn's DataSource
-                comboBoxColumn.Items.AddRange(new string[] { "1", "2", "3", "4" });
-                dataGridView1.DataSource = dataTable;
-
-
+                // Make only LAN_PHAM_LOI editable
                 foreach (DataGridViewColumn column in dataGridView1.Columns)
                 {
-                    if (column.Name != "LAN_PHAM_LOI") // Make only LAN_PHAM_LOI editable
-                    {
-                        column.ReadOnly = true;
-                    }
+                    column.ReadOnly = column.Name != "LAN_PHAM_LOI";
                 }
 
-                // Automatically adjust column widths
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-                // Optionally: Set word wrap for "TIÊU_CHÍ"
                 dataGridView1.Columns["TIÊU CHÍ"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                dataGridView1.CellValueChanged += DataGridView1_CellValueChanged; // Attach event for value change
-
+                // Attach event for validation and movement
+                dataGridView1.EditingControlShowing += dataGridView1_EditingControlShowing;
+                dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
+
 
         // Dictionary to track previous adjustments for each row
         private Dictionary<int, int> previousAdjustments = new Dictionary<int, int>();
@@ -249,7 +283,7 @@ namespace KPI
                 {
                     conn.Open();
                     // Query to update the database
-                    string updateQuery = "UPDATE t12 SET `LAN_PHAM_LOI` = @LAN_PHAM_LOI WHERE MaNV = @MaNV AND `TIÊU CHÍ` = @TIÊU_CHÍ";
+                    string updateQuery = $"UPDATE {selectedMonth} SET `LAN_PHAM_LOI` = @LAN_PHAM_LOI WHERE MaNV = @MaNV AND `TIÊU CHÍ` = @TIÊU_CHÍ";
                     using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                     {
                         foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -264,13 +298,38 @@ namespace KPI
                             }
                         }
                     }
+                    // Query to update Total_NV based on LAN_PHAM_LOI values
+                    string updateTotalQuery = $@"
+                        UPDATE {selectedMonth} 
+                        SET Total_NV = 
+                            CASE 
+                                WHEN LAN_PHAM_LOI = 1 THEN `Lần 1`
+                                WHEN LAN_PHAM_LOI = 2 THEN `Lần 2`
+                                WHEN LAN_PHAM_LOI = 3 THEN `Lần 3`
+                                WHEN LAN_PHAM_LOI = 4 THEN `Lần 4`
+                                ELSE 0 
+                            END
+                        WHERE MaNV = @MaNV";
+
+                    using (MySqlCommand cmdTotal = new MySqlCommand(updateTotalQuery, conn))
+                    {
+                        cmdTotal.Parameters.AddWithValue("@MaNV", userMaNV);
+                        cmdTotal.ExecuteNonQuery();
+                    }
                 }
                 // Yes No message box, Bạn chỉ được nộp được 1 lần, bạn có chắc chắn muốn nộp không?
                 DialogResult dialogResult = MessageBox.Show("Bạn chỉ được nộp được 1 lần mỗi tháng, bạn có chắc chắn muốn nộp không?", "Lưu", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     dataGridView1.Visible = false;
+                    btnUpdate.Visible = false;
+                    btnReset.Visible = false;
+                    lblTotal.Visible = false;
+                    lblTitle.Visible = false;
+                    pBoxCongrat.Visible = true;
+                    lblCongrat.Visible = true;
                     MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -309,11 +368,37 @@ namespace KPI
         {
             if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["LAN_PHAM_LOI"].Index)
             {
-                ComboBox comboBox = e.Control as ComboBox;
-                if (comboBox != null)
+                TextBox textBox = e.Control as TextBox;
+                if (textBox != null)
                 {
-                    // Open the dropdown immediately
-                    comboBox.DroppedDown = true;
+                    textBox.KeyPress -= TextBox_KeyPress; // Remove previous handlers
+                    textBox.KeyPress += TextBox_KeyPress; // Add KeyPress event to allow only numbers
+
+                    textBox.KeyDown -= TextBox_KeyDown; // Remove previous handlers
+                    textBox.KeyDown += TextBox_KeyDown; // Add KeyDown event for Enter & Down Arrow
+                }
+            }
+        }
+
+        // Allow only numeric input
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Block non-numeric input
+            }
+        }
+
+        // Move to next row when pressing Enter or Arrow Down
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                e.SuppressKeyPress = true; // Prevent default behavior
+                int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                if (rowIndex < dataGridView1.Rows.Count - 1)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex + 1].Cells["LAN_PHAM_LOI"];
                 }
             }
         }

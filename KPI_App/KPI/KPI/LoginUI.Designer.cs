@@ -40,6 +40,9 @@
             txtUser = new TextBox();
             txtPass = new TextBox();
             pictureBox1 = new PictureBox();
+            createAccount = new LinkLabel();
+            comboBoxMonth = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel5.SuspendLayout();
@@ -50,17 +53,17 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(38, 254);
+            pictureBox3.Location = new Point(38, 195);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(25, 25);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(38, 302);
+            pictureBox4.Location = new Point(38, 243);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(25, 25);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -71,7 +74,7 @@
             // 
             panel5.BackColor = Color.FromArgb(0, 117, 214);
             panel5.Controls.Add(panel6);
-            panel5.Location = new Point(38, 333);
+            panel5.Location = new Point(38, 274);
             panel5.Name = "panel5";
             panel5.Size = new Size(236, 1);
             panel5.TabIndex = 2;
@@ -88,7 +91,7 @@
             // 
             panel7.BackColor = Color.FromArgb(0, 117, 214);
             panel7.Controls.Add(panel8);
-            panel7.Location = new Point(38, 285);
+            panel7.Location = new Point(38, 226);
             panel7.Name = "panel7";
             panel7.Size = new Size(236, 1);
             panel7.TabIndex = 4;
@@ -134,7 +137,7 @@
             txtUser.BorderStyle = BorderStyle.None;
             txtUser.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUser.ForeColor = Color.FromArgb(0, 117, 214);
-            txtUser.Location = new Point(69, 264);
+            txtUser.Location = new Point(69, 205);
             txtUser.Name = "txtUser";
             txtUser.PlaceholderText = "Mã nhân viên";
             txtUser.Size = new Size(205, 15);
@@ -146,7 +149,7 @@
             txtPass.BorderStyle = BorderStyle.None;
             txtPass.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPass.ForeColor = Color.FromArgb(0, 117, 214);
-            txtPass.Location = new Point(69, 312);
+            txtPass.Location = new Point(69, 253);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '•';
             txtPass.PlaceholderText = "Mật khẩu";
@@ -157,12 +160,49 @@
             // 
             pictureBox1.ErrorImage = null;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(60, 44);
+            pictureBox1.Location = new Point(60, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(203, 154);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
+            // 
+            // createAccount
+            // 
+            createAccount.AutoSize = true;
+            createAccount.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createAccount.LinkColor = Color.FromArgb(0, 117, 214);
+            createAccount.Location = new Point(113, 432);
+            createAccount.Name = "createAccount";
+            createAccount.Size = new Size(89, 16);
+            createAccount.TabIndex = 10;
+            createAccount.TabStop = true;
+            createAccount.Text = "Tạo tài khoản";
+            createAccount.VisitedLinkColor = Color.FromArgb(0, 117, 214);
+            createAccount.LinkClicked += createAccount_LinkClicked;
+            // 
+            // comboBoxMonth
+            // 
+            comboBoxMonth.BackColor = Color.FromArgb(24, 30, 54);
+            comboBoxMonth.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            comboBoxMonth.ForeColor = Color.White;
+            comboBoxMonth.FormattingEnabled = true;
+            comboBoxMonth.Location = new Point(133, 298);
+            comboBoxMonth.Name = "comboBoxMonth";
+            comboBoxMonth.Size = new Size(118, 24);
+            comboBoxMonth.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(158, 161, 176);
+            label1.ImeMode = ImeMode.Off;
+            label1.Location = new Point(63, 302);
+            label1.Name = "label1";
+            label1.Size = new Size(64, 20);
+            label1.TabIndex = 13;
+            label1.Text = "Tháng:";
             // 
             // LoginUI
             // 
@@ -170,6 +210,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(308, 486);
+            Controls.Add(label1);
+            Controls.Add(comboBoxMonth);
+            Controls.Add(createAccount);
             Controls.Add(pictureBox1);
             Controls.Add(txtPass);
             Controls.Add(txtUser);
@@ -179,13 +222,14 @@
             Controls.Add(panel5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             ImeMode = ImeMode.Off;
             MaximizeBox = false;
             Name = "LoginUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
+            FormClosing += LoginUI_FormClosing;
             Load += LoginUI_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -209,5 +253,8 @@
         private TextBox txtUser;
         private TextBox txtPass;
         private PictureBox pictureBox1;
+        private LinkLabel createAccount;
+        private ComboBox comboBoxMonth;
+        private Label label1;
     }
 }

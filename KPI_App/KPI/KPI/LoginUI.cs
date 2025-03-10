@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace KPI
 {
@@ -63,12 +64,28 @@ namespace KPI
 
             // Focus on the second textbox
             this.ActiveControl = txtPass;
+            LoadMonth();
 
         }
+        private void LoadMonth()
+        {
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBoxMonth.Items.Add($"Tháng {i}");
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             string username = txtUser.Text;
             string password = txtPass.Text;
+
+            if (comboBoxMonth.SelectedIndex == -1 || comboBoxMonth.SelectedIndex == null)
+            {
+                MessageBox.Show("Vui lòng chọn tháng.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -94,6 +111,8 @@ namespace KPI
                             {
                                 //MessageBox.Show("Đăng nhập thành công! Xin chào: " + reader["MANV"].ToString());
                                 string userMaNV = reader["MANV"].ToString();
+                                string selectedMonth = "thang" + comboBoxMonth.SelectedItem.ToString().Split(' ')[1];
+
 
 
                                 if (checkBox1.Checked)
@@ -108,10 +127,14 @@ namespace KPI
                                 }
                                 Properties.Settings.Default.Save();
 
-                                TieuChiCaNhanfrm tieuChiCaNhan = new TieuChiCaNhanfrm(userMaNV);
-                                MainScreen mainScreen = new MainScreen(userMaNV);
-                                timKiemfrm timKiemfrm = new timKiemfrm(userMaNV);
-                                toTruongChamfrm toTruongChamfrm = new toTruongChamfrm(userMaNV);
+                                TieuChiCaNhanfrm tieuChiCaNhan = new TieuChiCaNhanfrm(userMaNV, selectedMonth);
+                                MainScreen mainScreen = new MainScreen(userMaNV, selectedMonth);
+                                timKiemfrm timKiemfrm = new timKiemfrm(userMaNV, selectedMonth);
+                                toTruongChamfrm toTruongChamfrm = new toTruongChamfrm(userMaNV, selectedMonth);
+                                lichSufrm lichSufrm = new lichSufrm(userMaNV);
+                                configAdminfrm configAdminfrm = new configAdminfrm(userMaNV);
+                                generalfrm generalfrm = new generalfrm(userMaNV, selectedMonth);
+
                                 mainScreen.Show();
                                 this.Hide();
                             }
@@ -133,5 +156,17 @@ namespace KPI
         {
 
         }
+
+        private void LoginUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void createAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            createAccountfrm createAccountfrm = new createAccountfrm();
+            createAccountfrm.Show();
+            this.Hide();
+        }   
     }
 }

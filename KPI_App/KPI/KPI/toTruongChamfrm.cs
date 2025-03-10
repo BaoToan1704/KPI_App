@@ -16,10 +16,12 @@ namespace KPI
         private string userMaNV; // Logged-in user's MaNV
         private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
         private ComboBox activeComboBox = null;
+        private string selectedMonth;
 
-        public toTruongChamfrm(string username)
+        public toTruongChamfrm(string username, string selectedMonth)
         {
             this.userMaNV = username;
+            this.selectedMonth = selectedMonth;
             InitializeComponent();
         }
 
@@ -54,7 +56,7 @@ namespace KPI
                     }
 
                     // Populate ComboBox with employees in the same department (BP), excluding the logged-in user
-                    string query = "SELECT MaNV FROM user WHERE BP = @BP AND MaNV != @MaNV";
+                    string query = "SELECT MaNV, HOTEN FROM user WHERE BP = @BP AND MaNV != @MaNV";
                     DataTable employeeTable = new DataTable();
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -67,7 +69,7 @@ namespace KPI
                         }
                     }
 
-                    comboBox1.DisplayMember = "MaNV";
+                    comboBox1.DisplayMember = "HOTEN";
                     comboBox1.ValueMember = "MaNV";
                     comboBox1.DataSource = employeeTable;
 
@@ -99,24 +101,30 @@ namespace KPI
             }
         }
 
-        private void LoadDefaultData()
-        {
-            // Load the logged-in user's data by default
-            LoadEmployeeData(userMaNV);
-        }
-
         private void LoadEmployeeData(string maNV)
         {
             try
             {
+                string bp;
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
+                    string userQuery = "SELECT BP FROM user WHERE MaNV = @MaNV";
+                    using (MySqlCommand cmd = new MySqlCommand(userQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNV", userMaNV);
+                        bp = cmd.ExecuteScalar()?.ToString();
+                    }
+                }
 
-                    string query = "SELECT `TIÊU CHÍ`, TO_TRUONG_CHAM, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM t12 WHERE MaNV = @MaNV";
-                    DataTable dataTable = new DataTable();
+                DataTable dataTable = new DataTable();
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string dataQuery = $"SELECT `TIÊU CHÍ`, TO_TRUONG_CHAM, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth} WHERE MaNV = @MaNV";
+
+                    using (MySqlCommand cmd = new MySqlCommand(dataQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaNV", maNV);
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
@@ -124,50 +132,59 @@ namespace KPI
                             adapter.Fill(dataTable);
                         }
                     }
-
-                    dataGridView1.DataSource = dataTable;
-
-                    // Add a combobox column for "TO_TRUONG_CHAM"
-                    var comboBoxColumn = new DataGridViewComboBoxColumn
-                    {
-                        Name = "TO_TRUONG_CHAM",
-                        HeaderText = "TO_TRUONG_CHAM",
-                        DataPropertyName = "TO_TRUONG_CHAM", // Bind to the column in the DataTable
-                        DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton
-                    };
-
-                    // Replace existing column with ComboBoxColumn from 1 to 4
-                    dataGridView1.Columns.Remove("TO_TRUONG_CHAM");
-                    dataGridView1.Columns.Insert(1, comboBoxColumn);
-
-                    // Set the ComboBoxColumn's DataSource
-                    comboBoxColumn.Items.AddRange(new string[] { "1", "2", "3", "4" });
-                    dataGridView1.DataSource = dataTable;
-
-                    foreach (DataGridViewColumn column in dataGridView1.Columns)
-                    {
-                        if (column.Name != "TO_TRUONG_CHAM") // Make only TO_TRUONG_CHAM editable
-                        {
-                            column.ReadOnly = true;
-                        }
-                    }
-
-                    // Automatically adjust column widths
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-                    // Optionally: Set word wrap for "TIÊU_CHÍ"
-                    dataGridView1.Columns["TIÊU CHÍ"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                    dataGridView1.CellValueChanged += dataGridView1_CellValueChanged; // Attach event for value change
-
                 }
+
+                // Bind data to DataGridView
+                dataGridView1.DataSource = dataTable;
+
+                // Check if all LAN_PHAM_LOI values are 0
+                bool allZero = dataTable.AsEnumerable().All(row => row["LAN_PHAM_LOI"] != DBNull.Value && Convert.ToInt32(row["LAN_PHAM_LOI"]) == 0);
+
+                // Update label1 based on check
+                if (allZero)
+                {
+                    label1.Text = "NV chưa chấm KPI";
+                }
+                else
+                {
+                    label1.Text = "";
+                }
+
+                // Remove existing column
+                if (dataGridView1.Columns.Contains("TO_TRUONG_CHAM"))
+                {
+                    dataGridView1.Columns.Remove("TO_TRUONG_CHAM");
+                }
+
+                // Add a TextBoxColumn instead of a ComboBoxColumn
+                var textBoxColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "TO_TRUONG_CHAM",
+                    HeaderText = "TO_TRUONG_CHAM",
+                    DataPropertyName = "TO_TRUONG_CHAM",
+                };
+
+                dataGridView1.Columns.Insert(1, textBoxColumn);
+
+                // Make only LAN_PHAM_LOI editable
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    column.ReadOnly = column.Name != "TO_TRUONG_CHAM";
+                }
+
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                dataGridView1.Columns["TIÊU CHÍ"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                // Attach event for validation and movement
+                dataGridView1.EditingControlShowing += dataGridView1_EditingControlShowing;
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading employee data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }            
         }
 
         private string GetUserBP(MySqlConnection conn)
@@ -196,7 +213,7 @@ namespace KPI
                 {
                     conn.Open();
                     // Query to update the database
-                    string updateQuery = "UPDATE t12 SET `TO_TRUONG_CHAM` = @TO_TRUONG_CHAM WHERE MaNV = @MaNV AND `TIÊU CHÍ` = @TIÊU_CHÍ";
+                    string updateQuery = $"UPDATE {selectedMonth} SET `TO_TRUONG_CHAM` = @TO_TRUONG_CHAM WHERE MaNV = @MaNV AND `TIÊU CHÍ` = @TIÊU_CHÍ";
                     using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                     {
                         foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -210,6 +227,24 @@ namespace KPI
                                 cmd.ExecuteNonQuery();
                             }
                         }
+                    }
+                    // Query to update Total_NV based on LAN_PHAM_LOI values
+                    string updateTotalQuery = $@"
+                        UPDATE {selectedMonth} 
+                        SET Total_TT = 
+                            CASE 
+                                WHEN TO_TRUONG_CHAM = 1 THEN `Lần 1`
+                                WHEN TO_TRUONG_CHAM = 2 THEN `Lần 2`
+                                WHEN TO_TRUONG_CHAM = 3 THEN `Lần 3`
+                                WHEN TO_TRUONG_CHAM = 4 THEN `Lần 4`
+                                ELSE 0 
+                            END
+                        WHERE MaNV = @MaNV";
+
+                    using (MySqlCommand cmdTotal = new MySqlCommand(updateTotalQuery, conn))
+                    {
+                        cmdTotal.Parameters.AddWithValue("@MaNV", userMaNV);
+                        cmdTotal.ExecuteNonQuery();
                     }
                 }
                 // Hide the data grid view and show a success message
@@ -246,6 +281,19 @@ namespace KPI
                         comboBox.DroppedDown = true; // Automatically open dropdown on entry
                     }
                 }
+            }
+
+            if (dataGridView1.Columns.Contains("TO_TRUONG_CHAM") && e.ColumnIndex == dataGridView1.Columns["TO_TRUONG_CHAM"].Index && e.RowIndex >= 0)
+            {
+                // Reset colors for all rows
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64);
+                    row.DefaultCellStyle.ForeColor = Color.White;  // Default text color
+                }
+
+                // Change color of the selected row
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(34, 44, 89);
             }
         }
 
@@ -314,11 +362,36 @@ namespace KPI
         {
             if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["TO_TRUONG_CHAM"].Index)
             {
-                ComboBox comboBox = e.Control as ComboBox;
-                if (comboBox != null)
+                TextBox textBox = e.Control as TextBox;
+                if (textBox != null)
                 {
-                    // Open the dropdown immediately
-                    comboBox.DroppedDown = true;
+                    textBox.KeyPress -= TextBox_KeyPress; // Remove previous handlers
+                    textBox.KeyPress += TextBox_KeyPress; // Add KeyPress event to allow only numbers
+
+                    textBox.KeyDown -= TextBox_KeyDown; // Remove previous handlers
+                    textBox.KeyDown += TextBox_KeyDown; // Add KeyDown event for Enter & Down Arrow
+                }
+            }
+        }
+        // Allow only numeric input
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Block non-numeric input
+            }
+        }
+
+        // Move to next row when pressing Enter or Arrow Down
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                e.SuppressKeyPress = true; // Prevent default behavior
+                int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                if (rowIndex < dataGridView1.Rows.Count - 1)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex + 1].Cells["TO_TRUONG_CHAM"];
                 }
             }
         }

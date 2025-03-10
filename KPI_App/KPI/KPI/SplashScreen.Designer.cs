@@ -36,7 +36,9 @@
             progressBar1 = new ProgressBar();
             timer1 = new System.Windows.Forms.Timer(components);
             panel3 = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // loading
@@ -87,6 +89,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label2);
             panel3.Location = new Point(-1, 1);
             panel3.Name = "panel3";
             panel3.Size = new Size(708, 36);
@@ -94,6 +97,17 @@
             panel3.MouseDown += panel3_MouseDown;
             panel3.MouseMove += panel3_MouseMove;
             panel3.MouseUp += panel3_MouseUp;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Snow;
+            label2.Location = new Point(3, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(190, 18);
+            label2.TabIndex = 0;
+            label2.Text = "© Co.opXtra Tạ Quang Bửu";
             // 
             // SplashScreen
             // 
@@ -112,6 +126,8 @@
             Text = "SplashScreen";
             Load += SplashScreen_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,5 +140,6 @@
         private ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
         private Panel panel3;
+        private Label label2;
     }
 }

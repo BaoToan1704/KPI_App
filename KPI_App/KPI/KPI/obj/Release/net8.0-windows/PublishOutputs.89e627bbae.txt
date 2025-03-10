@@ -4,6 +4,7 @@ D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.p
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\KPI.runtimeconfig.json
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\KPI.dll.config
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\KPI.pdb
+D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\aa\KPI.resources.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\Interop.WMPLib.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\AxInterop.WMPLib.dll
 D:\0.VITINH\Toan\Github\KPI_App\KPI_App\KPI\KPI\bin\Release\net8.0-windows\app.publish\BouncyCastle.Cryptography.dll
