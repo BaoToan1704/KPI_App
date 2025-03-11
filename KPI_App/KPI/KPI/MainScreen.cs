@@ -23,7 +23,7 @@ namespace KPI
         private Point offSet;
         private string userMaNV;
         private string selectedMonth;
-        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4"; // Your DB connection string
+        private string connectionString = "Server=10.164.2.41;Database=kpi;User ID=toan;Password=123456;Charset=utf8mb4"; // Your DB connection string
         public MainScreen(string username, string selectedMonth)
         {
             InitializeComponent();

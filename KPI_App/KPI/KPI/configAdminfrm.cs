@@ -9,7 +9,7 @@ namespace KPI
     public partial class configAdminfrm : Form
     {
         private string userMaNV;
-        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
+        private string connectionString = "Server=10.164.2.41;Database=kpi;User ID=toan;Password=123456;Charset=utf8mb4";
 
         public configAdminfrm(string username)
         {

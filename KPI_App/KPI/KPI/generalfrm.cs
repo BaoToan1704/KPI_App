@@ -11,7 +11,7 @@ namespace KPI
     public partial class generalfrm : Form
     {
         private string userMaNV; // Logged-in user's MaNV
-        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
+        private string connectionString = "Server=10.164.2.41;Database=kpi;User ID=toan;Password=123456;Charset=utf8mb4";
         private string selectedMonth;
 
         public generalfrm(string username, string selectedMonth)
@@ -58,7 +58,7 @@ namespace KPI
 
                     // Query to join tong_ket_table with selectedMonth and sum Total_NV and Total_TT
                     string query;
-                    if (userBP == "GĐ")
+                    if (userBP == "BGĐ")
                     {
                         query = $@"
                     SELECT tkt.MANV, tkt.HOTEN, tkt.CD, tkt.BP,
@@ -84,7 +84,7 @@ namespace KPI
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        if (userBP != "GĐ")
+                        if (userBP != "BGĐ")
                         {
                             cmd.Parameters.AddWithValue("@BP", userBP);
                         }

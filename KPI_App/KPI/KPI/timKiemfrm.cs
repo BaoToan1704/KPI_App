@@ -10,7 +10,7 @@ namespace KPI
     public partial class timKiemfrm : Form
     {
         private string userMaNV; // Logged-in user's MaNV
-        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
+        private string connectionString = "Server=10.164.2.41;Database=kpi;User ID=toan;Password=123456;Charset=utf8mb4";
         private string selectedMonth;
         public timKiemfrm(string username, string selectedMonth)
         {
@@ -61,7 +61,7 @@ namespace KPI
                     comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
 
                     // If admin is logged in, show all employees in the ComboBox
-                    if (userMaNV == "admin")
+                    if (userMaNV == "admin" || userBP == "BGĐ")
                     {
                         query = "SELECT MaNV, HOTEN FROM user";
                         employeeTable = new DataTable();
@@ -77,6 +77,7 @@ namespace KPI
                         comboBox1.DataSource = employeeTable;
                         comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
                     }
+
                 }
             }
             catch (Exception ex)

@@ -14,7 +14,7 @@ namespace KPI
     public partial class toTruongChamfrm : Form
     {
         private string userMaNV; // Logged-in user's MaNV
-        private string connectionString = "Server=127.0.0.1;Database=kpi;User ID=root;Password=123456;Charset=utf8mb4";
+        private string connectionString = "Server=10.164.2.41;Database=kpi;User ID=toan;Password=123456;Charset=utf8mb4";
         private ComboBox activeComboBox = null;
         private string selectedMonth;
 
