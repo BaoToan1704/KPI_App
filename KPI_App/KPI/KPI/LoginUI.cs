@@ -73,6 +73,9 @@ namespace KPI
             {
                 comboBoxMonth.Items.Add($"Tháng {i}");
             }
+
+            int currentMonth = DateTime.Now.Month; // Get current month as integer (1-12)
+            comboBoxMonth.SelectedIndex = currentMonth - 1; // Set index (0-based)
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
