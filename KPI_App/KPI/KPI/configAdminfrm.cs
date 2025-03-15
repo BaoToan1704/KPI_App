@@ -78,7 +78,7 @@ namespace KPI
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = userMaNV == "admin" && selectedMaNV == "admin" ? $"SELECT MaNV, `TIÊU CHÍ`, TO_TRUONG_CHAM, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth}" : $"SELECT * FROM {selectedMonth} WHERE MaNV = @MaNV";
+                    string query = userMaNV == "admin" && selectedMaNV == "admin" ? $"SELECT MaNV, `TIÊU CHÍ`, TO_TRUONG_CHAM, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth}" : $"SELECT MaNV, `TIÊU CHÍ`, TO_TRUONG_CHAM, LAN_PHAM_LOI, `Lần 1`, `Lần 2`, `Lần 3`, `Lần 4` FROM {selectedMonth} WHERE MaNV = @MaNV";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         if (userMaNV != "admin" || selectedMaNV != "admin")
@@ -116,10 +116,22 @@ namespace KPI
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row.IsNewRow) continue;
-                        string updateQuery = $"UPDATE {selectedMonth} SET COLUMN_NAME = @Value WHERE MaNV = @MaNV";
+                        string updateQuery = $"UPDATE {selectedMonth} SET LAN_PHAM_LOI = @Value WHERE MaNV = @MaNV";
                         using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                         {
-                            cmd.Parameters.AddWithValue("@Value", row.Cells["COLUMN_NAME"].Value);
+                            cmd.Parameters.AddWithValue("@Value", row.Cells["LAN_PHAM_LOI"].Value);
+                            cmd.Parameters.AddWithValue("@MaNV", row.Cells["MaNV"].Value);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+                        string updateQuery = $"UPDATE {selectedMonth} SET TO_TRUONG_CHAM = @Value WHERE MaNV = @MaNV";
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Value", row.Cells["TO_TRUONG_CHAM"].Value);
                             cmd.Parameters.AddWithValue("@MaNV", row.Cells["MaNV"].Value);
                             cmd.ExecuteNonQuery();
                         }
