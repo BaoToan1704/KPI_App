@@ -32,6 +32,10 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel3 = new Panel();
+            label5 = new Label();
+            label4 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             lblCongrat = new Label();
             pBoxCongrat = new PictureBox();
             dataGridView1 = new DataGridView();
@@ -40,6 +44,7 @@
             lblTitle = new Label();
             lblTotal = new Label();
             btnReset = new Button();
+            label6 = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBoxCongrat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -47,6 +52,11 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
             panel3.Controls.Add(lblCongrat);
             panel3.Controls.Add(pBoxCongrat);
             panel3.Controls.Add(dataGridView1);
@@ -54,6 +64,50 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1036, 562);
             panel3.TabIndex = 4;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.WhiteSmoke;
+            label5.Location = new Point(848, 75);
+            label5.Name = "label5";
+            label5.Size = new Size(78, 24);
+            label5.TabIndex = 13;
+            label5.Text = "30 điểm";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.WhiteSmoke;
+            label4.Location = new Point(848, 27);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 24);
+            label4.TabIndex = 12;
+            label4.Text = "cộng không";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.WhiteSmoke;
+            label2.Location = new Point(848, 3);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 24);
+            label2.TabIndex = 11;
+            label2.Text = "Tổng điểm";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(784, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 24);
+            label1.TabIndex = 10;
+            label1.Text = "Lưu ý:";
             // 
             // lblCongrat
             // 
@@ -173,6 +227,17 @@
             btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += btnReset_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.WhiteSmoke;
+            label6.Location = new Point(848, 51);
+            label6.Name = "label6";
+            label6.Size = new Size(82, 24);
+            label6.TabIndex = 14;
+            label6.Text = "vượt quá";
+            // 
             // TieuChiCaNhanfrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -209,5 +274,10 @@
         private Button btnReset;
         private PictureBox pBoxCongrat;
         private Label lblCongrat;
+        private Label label1;
+        private Label label2;
+        private Label label5;
+        private Label label4;
+        private Label label6;
     }
 }

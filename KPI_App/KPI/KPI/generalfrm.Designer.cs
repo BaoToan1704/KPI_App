@@ -39,7 +39,7 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = Color.FromArgb(24, 30, 54);
+            dataGridView1.BackgroundColor = Color.FromArgb(46, 51, 73);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(46, 51, 73);

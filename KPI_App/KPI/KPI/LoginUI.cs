@@ -55,15 +55,15 @@ namespace KPI
             {
                 txtUser.Text = Properties.Settings.Default.SavedUsername;
                 checkBox1.Checked = true; // Remember Me is checked
+                this.ActiveControl = txtPass;
             }
             else
             {
                 txtUser.Text = string.Empty;
                 checkBox1.Checked = false;
+                this.ActiveControl = txtUser;
             }
 
-            // Focus on the second textbox
-            this.ActiveControl = txtPass;
             LoadMonth();
 
         }

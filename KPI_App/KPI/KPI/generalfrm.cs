@@ -189,7 +189,7 @@ namespace KPI
 
 
                 // Merge row A4 to F4 and set text
-                Excel.Range titleRange = worksheet.Range["A1", "F1"];
+                Excel.Range titleRange = worksheet.Range["A1", "K1"];
                 titleRange.Merge();
                 titleRange.Value = "TỔNG HỢP ĐÁNH GIÁ KPI THÁNG: ";
                 titleRange.Font.Bold = true;
@@ -228,18 +228,15 @@ namespace KPI
                     {
                         Excel.Range cell = (Excel.Range)worksheet.Cells[row + startRow + 1, col + 1];
                         cell.Value = dataGridView1.Rows[row].Cells[col].Value?.ToString();
-                        cell.WrapText = true;
                         cell.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
                         // Manually set row height and width for each data cell
-                        cell.RowHeight = 20;
+                        cell.RowHeight = 10;
                         cell.ColumnWidth = 40;
+                        cell.WrapText = true;
+
                     }
                 }
-
-                //// Manually set row height for all rows
-                //worksheet.Rows.RowHeight = 40;
-                //((Excel.Range)worksheet.Columns[1]).ColumnWidth = 118;
 
                 // AutoFit other columns (except column A)
                 for (int i = 2; i <= dataGridView1.Columns.Count; i++)

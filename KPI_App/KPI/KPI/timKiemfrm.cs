@@ -200,13 +200,11 @@ namespace KPI
                 Excel.Range highEmployeeLabel = (Excel.Range)worksheet.Cells[7, 1];
                 highEmployeeLabel.Font.Bold = true;
                 highEmployeeLabel.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                highEmployeeLabel.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(37, 150, 190));
 
                 worksheet.Cells[6, 1] = $"Mã nhân viên: {selectedUser}";
                 Excel.Range employeeLabel = (Excel.Range)worksheet.Cells[7, 1];
                 employeeLabel.Font.Bold = true;
                 employeeLabel.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                employeeLabel.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(37, 150, 190));
 
                 // Section title before data
                 worksheet.Cells[8, 1] = "1. ĐÁNH GIÁ TRONG KÌ";
@@ -251,6 +249,76 @@ namespace KPI
                         cell.ColumnWidth = 118;
                     }
                 }
+
+                // Add new columns for the calculated values
+                int calculatedColumnNV = dataGridView1.Columns.Count + 1;
+                int calculatedColumnTT = calculatedColumnNV + 1; // Next column for "Calculated Value TT"
+
+                // Add headers
+                worksheet.Cells[startRow, calculatedColumnNV] = "Calculated Value NV"; // Header for NV
+                worksheet.Cells[startRow, calculatedColumnTT] = "Calculated Value TT"; // Header for TT
+
+                Excel.Range calculatedHeaderCellNV = (Excel.Range)worksheet.Cells[startRow, calculatedColumnNV];
+                calculatedHeaderCellNV.Font.Bold = true;
+                calculatedHeaderCellNV.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                calculatedHeaderCellNV.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                calculatedHeaderCellNV.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                Excel.Range calculatedHeaderCellTT = (Excel.Range)worksheet.Cells[startRow, calculatedColumnTT];
+                calculatedHeaderCellTT.Font.Bold = true;
+                calculatedHeaderCellTT.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                calculatedHeaderCellTT.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                calculatedHeaderCellTT.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                // Apply the formulas dynamically
+                for (int row = 0; row < dataGridView1.Rows.Count; row++)
+                {
+                    int excelRow = row + startRow + 1; // Offset to match Excel row numbers
+
+                    // Formula for "Calculated Value NV"
+                    Excel.Range formulaCellNV = (Excel.Range)worksheet.Cells[excelRow, calculatedColumnNV];
+                    formulaCellNV.Formula = $"=IF(C{excelRow}=0, 0, INDEX(D{excelRow}:G{excelRow}, C{excelRow}))";
+                    formulaCellNV.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    formulaCellNV.WrapText = true;
+
+                    // Formula for "Calculated Value TT"
+                    Excel.Range formulaCellTT = (Excel.Range)worksheet.Cells[excelRow, calculatedColumnTT];
+                    formulaCellTT.Formula = $"=IF(B{excelRow}=0, 0, INDEX(D{excelRow}:G{excelRow}, B{excelRow}))";
+                    formulaCellTT.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    formulaCellTT.WrapText = true;
+                }
+
+
+                // Identify the last row
+                int lastRow = startRow + dataGridView1.Rows.Count;
+
+                // Set "TỔNG CỘNG:" in column A of the last row
+                Excel.Range totalLabelCell = (Excel.Range)worksheet.Cells[lastRow, 1];
+                totalLabelCell.Value = "TỔNG CỘNG:";
+                totalLabelCell.Font.Bold = true;
+                totalLabelCell.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                totalLabelCell.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                // Apply the formula in column C of the last row
+                Excel.Range totalFormulaCell = (Excel.Range)worksheet.Cells[lastRow, 3];
+                totalFormulaCell.Formula = $"=IF(COUNTIF(H{startRow + 1}:H{lastRow - 1}, \"XLKL\")>0, \"XLKL\", MIN(100, 100 + SUM(H{startRow + 1}:H{lastRow - 1})))";
+                totalFormulaCell.Font.Bold = true;
+                totalFormulaCell.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                totalFormulaCell.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                // Apply the formula in column B of the last row
+                Excel.Range totalFormulaCellTT = (Excel.Range)worksheet.Cells[lastRow, 2];
+                totalFormulaCellTT.Formula = $"=IF(COUNTIF(I{startRow + 1}:I{lastRow - 1}, \"XLKL\")>0, \"XLKL\", MIN(100, 100 + SUM(I{startRow + 1}:I{lastRow - 1})))";
+                totalFormulaCellTT.Font.Bold = true;
+                totalFormulaCellTT.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                totalFormulaCellTT.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                // Clear data from columns D to I in the last row
+                Excel.Range lastRowRange = worksheet.Range[$"D{lastRow}:I{lastRow}"];
+                lastRowRange.ClearContents(); // Clears values while keeping formatting
+
+                ((Excel.Range)worksheet.Columns["H:H"]).EntireColumn.Hidden = true;
+                ((Excel.Range)worksheet.Columns["I:I"]).EntireColumn.Hidden = true;
 
                 //// Manually set row height for all rows
                 //worksheet.Rows.RowHeight = 40;

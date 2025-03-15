@@ -123,6 +123,12 @@ namespace KPI
                     btnReset.Visible = true;
                     lblTotal.Visible = true;
                     lblTitle.Visible = true;
+                    label1.Visible = true;
+                    label2.Visible = true;
+                    label3.Visible = false;
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = true;
                     pBoxCongrat.Visible = false;
                     lblCongrat.Visible = false;
                 }
@@ -133,8 +139,15 @@ namespace KPI
                     btnReset.Visible = false;
                     lblTotal.Visible = false;
                     lblTitle.Visible = false;
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
                     pBoxCongrat.Visible = true;
                     lblCongrat.Visible = true;
+
                 }
 
                 // Remove existing column
